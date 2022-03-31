@@ -101,7 +101,7 @@ const char* sColor ( const enum Color color ) {
 }
 
 ///////////////////////////Validation functions//////////////////////////////
-bool isWeightValid ( const float weight ) {
+bool isWeightValid ( const Weight weight ) {
     if ( weight <= 0 ){
         fprintf( stderr, "%s: Cats need to have a weight. \n", PROGRAM_NAME);
         return false;
