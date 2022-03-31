@@ -16,7 +16,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-extern bool printCat ( const NumCats index );
+extern bool printCat ( const int index );
 
 extern bool printAllCats();
 

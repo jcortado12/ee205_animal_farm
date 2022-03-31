@@ -19,7 +19,7 @@
 #include "config.h"
 
 
-NumCats numberOfCats = 0;
+int numberOfCats = 0;
 
 /////////////////////////////Structure/////////////////////////////////////
 struct Cats cat[ MAX_CATS ] = {};
@@ -101,7 +101,7 @@ const char* sColor ( const enum Color color ) {
 }
 
 ///////////////////////////Validation functions//////////////////////////////
-bool isWeightValid ( const Weight weight ) {
+bool isWeightValid ( const float weight ) {
     if ( weight <= 0 ){
         fprintf( stderr, "%s: Cats need to have a weight. \n", PROGRAM_NAME);
         return false;
@@ -120,7 +120,7 @@ bool isNameValid ( const char name[ MAX_NAME ] ){
         return false;
     }
 
-    for ( NumCats i = 0 ; i <= MAX_CATS ; i++ ) {
+    for ( int i = 0 ; i <= MAX_CATS ; i++ ) {
         if ( strcmp( cat[i].name, name ) == 0 ) {
             fprintf( stderr, "%s: Name of each cat must be unique. \n", PROGRAM_NAME);
             return false;
@@ -130,7 +130,7 @@ bool isNameValid ( const char name[ MAX_NAME ] ){
     return true;
 }
 
-bool isIndexValid ( const NumCats index ) {
+bool isIndexValid ( const int index ) {
     if ( index >= numberOfCats ) {
         fprintf( stderr, "%s: Cat index must not exceed %d. \n", PROGRAM_NAME, numberOfCats );
         return false;

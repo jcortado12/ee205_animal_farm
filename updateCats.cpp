@@ -19,7 +19,7 @@
 
 #include "config.h"
 
-bool updateCatName ( const NumCats index, const char newName[] ) {
+bool updateCatName ( const int index, const char newName[] ) {
 
     if ( isIndexValid(index) == false) {
         return false;
@@ -37,7 +37,7 @@ bool updateCatName ( const NumCats index, const char newName[] ) {
 }
 
 
-bool fixCat( const NumCats index ) {
+bool fixCat( const int index ) {
 
     if ( isIndexValid(index) == false ) {
         return false;
@@ -49,7 +49,7 @@ bool fixCat( const NumCats index ) {
 }
 
 
-bool updateCatWeight ( const NumCats index, const Weight newWeight) {
+bool updateCatWeight ( const int index, const float newWeight) {
 
     if ( isIndexValid(index) == false ) {
         return false;
@@ -65,7 +65,7 @@ bool updateCatWeight ( const NumCats index, const Weight newWeight) {
 }
 
 
-bool updateCatCollar1 ( const NumCats index, enum Color newCollarColor1 ) {
+bool updateCatCollar1 ( const int index, enum Color newCollarColor1 ) {
 
     if ( isIndexValid(index) == false ) {
         return false;
@@ -76,7 +76,7 @@ bool updateCatCollar1 ( const NumCats index, enum Color newCollarColor1 ) {
 }
 
 
-bool updateCatCollar2 ( const NumCats index, enum Color newCollarColor2 ) {
+bool updateCatCollar2 ( const int index, enum Color newCollarColor2 ) {
 
     if ( isIndexValid(index) == false ) {
         return false;
@@ -87,7 +87,7 @@ bool updateCatCollar2 ( const NumCats index, enum Color newCollarColor2 ) {
 }
 
 
-bool updateLicense ( const NumCats index, const unsigned long long newLicense ) {
+bool updateLicense ( const int index, const unsigned long long newLicense ) {
 
     if ( isIndexValid(index) == false ) {
         return false;

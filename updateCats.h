@@ -19,14 +19,14 @@
 #include "catDatabase.h"
 
 
-extern bool updateCatName ( const NumCats index, const char newName[] );
+extern bool updateCatName ( const int index, const char newName[] );
 
-extern bool fixCat ( const NumCats index );
+extern bool fixCat ( const int index );
 
-extern bool updateCatWeight ( const NumCats index, const Weight newWeight);
+extern bool updateCatWeight ( const int index, const float newWeight);
 
-extern bool updateCatCollar1 ( const NumCats index, enum Color newCollarColor1 );
+extern bool updateCatCollar1 ( const int index, enum Color newCollarColor1 );
 
-extern bool updateCatCollar2 ( const NumCats index, enum Color newCollarColor2 );
+extern bool updateCatCollar2 ( const int index, enum Color newCollarColor2 );
 
-extern bool updateLicense ( const NumCats index, const unsigned long long newLicense );
+extern bool updateLicense ( const int index, const unsigned long long newLicense );
