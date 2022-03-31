@@ -19,8 +19,11 @@
 #define MAX_NAME (50)
 #define MAX_CATS (1024)
 
+//typedefs
+typedef float   Weight;
+typedef int     NumCats;
 
-extern int numberOfCats;
+extern NumCats numberOfCats;
 
 
 enum Gender { UNKNOWN_GENDER = 0, MALE, FEMALE };
@@ -28,10 +31,6 @@ enum Gender { UNKNOWN_GENDER = 0, MALE, FEMALE };
 enum Breed { UNKNOWN_BREED , MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX };
 
 enum Color { BLACK, WHITE, RED, BLUE, GREEN, PINK };
-
-//typedefs
-typedef float   Weight;
-typedef int     NumberOfCats;
 
 
 struct Cats {
@@ -54,4 +53,4 @@ extern const char* sColor ( const enum Color color );
 
 extern bool isWeightValid ( const Weight weight );
 extern bool isNameValid ( const char name[ MAX_NAME ] );
-extern bool isIndexValid ( const int index );
+extern bool isIndexValid ( const NumCats index );

@@ -19,7 +19,7 @@
 
 #include "config.h"
 
-bool printCat ( const int index ) {
+bool printCat ( const NumCats index ) {
 
     if ( index < 0 || index >= MAX_CATS ) {
         fprintf( stderr, "%s: Bad cat [%d] \n", PROGRAM_NAME, index);
@@ -49,7 +49,7 @@ bool printAllCats() {
         return false;
     }
 
-    for ( int index = 0; index < numberOfCats; ++index){
+    for ( NumCats index = 0; index < numberOfCats; ++index){
         printCat( index );
     }
 
@@ -59,7 +59,7 @@ bool printAllCats() {
 
 int findCat( const char name[] ){
 
-    for ( int index = 0; index <= MAX_CATS; index++ ){
+    for ( NumCats index = 0; index <= MAX_CATS; index++ ){
         if ( strcmp( cat[ index ].name, name ) == 0 ) {
             printf("\n[%s] is cat number [%d]\n", cat[ index ].name, index);
             return index;

@@ -19,7 +19,8 @@
 #include "config.h"
 
 
-int numberOfCats = 0;
+NumCats numberOfCats = 0;
+
 /////////////////////////////Structure/////////////////////////////////////
 struct Cats cat[ MAX_CATS ] = {};
 
@@ -119,7 +120,7 @@ bool isNameValid ( const char name[ MAX_NAME ] ){
         return false;
     }
 
-    for ( int i = 0 ; i <= MAX_CATS ; i++ ) {
+    for ( NumCats i = 0 ; i <= MAX_CATS ; i++ ) {
         if ( strcmp( cat[i].name, name ) == 0 ) {
             fprintf( stderr, "%s: Name of each cat must be unique. \n", PROGRAM_NAME);
             return false;
@@ -129,7 +130,7 @@ bool isNameValid ( const char name[ MAX_NAME ] ){
     return true;
 }
 
-bool isIndexValid ( const int index ) {
+bool isIndexValid ( const NumCats index ) {
     if ( index >= numberOfCats ) {
         fprintf( stderr, "%s: Cat index must not exceed %d. \n", PROGRAM_NAME, numberOfCats );
         return false;
