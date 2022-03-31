@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///         University of Hawaii, College of Engineering
-/// @brief  ee205_lab_08d_animal_farm_1_to_clion - EE 205 - Spr 2022
+/// @brief  ee205_lab_10b_typedef - EE 205 - Spr 2022
 ///
 /// @file updateCats.h
 /// @version 1.0
 ///
 /// @author Jordan Cortado <jcortado@hawaii.edu>
-/// @date   17_Mar_2022
+/// @date   30_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -23,7 +23,7 @@ extern bool updateCatName ( const int index, const char newName[] );
 
 extern bool fixCat ( const int index );
 
-extern bool updateCatWeight ( const int index, const float newWeight);
+extern bool updateCatWeight ( const int index, const Weight newWeight);
 
 extern bool updateCatCollar1 ( const int index, enum Color newCollarColor1 );
 
