@@ -19,6 +19,7 @@
 #include "reportCats.h"
 #include "updateCats.h"
 #include "deleteCats.h"
+#include "Cat.h"
 
 #include "config.h"
 
