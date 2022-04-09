@@ -10,3 +10,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "Cat.h"
+
+void Cat::zeroes() {
+    memset ( name, 0, MAX_NAME );
+    gender = UNKNOWN_GENDER;
+    breed = UNKNOWN_BREED;
+    isFixed = false;
+    weight = -1;
+}

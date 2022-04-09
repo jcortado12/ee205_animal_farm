@@ -20,6 +20,22 @@ protected:
     enum    Breed       breed;
     bool                isFixed;
     Weight              weight;
+
+public:
+    Cat*                next;
+
+public:
+    Cat();
+
+    Cat (   const   char*   newName,
+            const   Gender  newGender,
+            const   Breed   newBreed,
+            const   Weight  weight,
+            );
+
+private:
+    void zeros();
+
 };
 
 
