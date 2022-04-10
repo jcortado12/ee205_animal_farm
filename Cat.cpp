@@ -58,14 +58,17 @@ Weight Cat::getWeight() const {
     return weight;
 }
 
+
 void Cat::setWeight(Weight weight) {
     Cat::weight = weight;
 }
-
 void Cat::setGender(Gender gender) {
     Cat::gender = gender;
 }
-
 void Cat::setBreed(Breed breed) {
     Cat::breed = breed;
+}
+void Cat::setName(const char *newName) {
+    memset( name, 0, MAX_NAME);
+    strcpy( name, newName);
 }

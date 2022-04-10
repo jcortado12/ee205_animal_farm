@@ -24,10 +24,9 @@ protected:
 public:
     Cat*                next;
 
-
     Cat();
 
-    Cat (   const   char*   newName,
+    Cat (   const   char   *newName,
             const   Gender  newGender,
             const   Breed   newBreed,
             const   Weight  weight
@@ -43,7 +42,7 @@ public:
     Weight getWeight() const;
 
     /////////////Setters///////////
-    void setName( const char* newName);
+    void setName( const char *newName);
     void setWeight(Weight weight);
 
 protected:
