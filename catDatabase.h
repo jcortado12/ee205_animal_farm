@@ -32,13 +32,14 @@ enum Breed { UNKNOWN_BREED , MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX };
 
 enum Color { BLACK, WHITE, RED, BLUE, GREEN, PINK };
 
+const Weight UNKNOWN_WEIGHT = (-1);
 
 struct Cats {
     char                 name[ MAX_NAME ];
     enum Gender          gender;
     enum Breed           breed;
     bool                 isFixed;
-    Weight                weight;
+    Weight               weight;
     enum Color           collarColor1;
     enum Color           collarColor2;
     unsigned long long   license;
