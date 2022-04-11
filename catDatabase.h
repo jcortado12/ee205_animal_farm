@@ -52,6 +52,6 @@ extern const char* sGender ( const enum Gender gender );
 extern const char* sBreed ( const enum Breed breed );
 extern const char* sColor ( const enum Color color );
 
-extern bool isWeightValid ( const Weight weight );
-extern bool isNameValid ( const char name[ MAX_NAME ] );
-extern bool isIndexValid ( const int index );
+//extern bool isWeightValid ( const Weight weight );
+//extern bool isNameValid ( const char name[ MAX_NAME ] );
+//extern bool isIndexValid ( const int index );

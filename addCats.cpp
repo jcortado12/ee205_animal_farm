@@ -31,12 +31,12 @@ bool addCat (
 )
 {
 
-    if ( isNameValid(name) == false ) {
+/*    if ( isNameValid(name) == false ) {
         return false;
     }
     if ( isWeightValid(weight) == false ){
         return false;
-    }
+    }*/
 
 
     strcpy( cat[ numberOfCats ].name, name );

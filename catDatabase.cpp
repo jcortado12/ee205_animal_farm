@@ -101,39 +101,39 @@ const char* sColor ( const enum Color color ) {
 }
 
 ///////////////////////////Validation functions//////////////////////////////
-bool isWeightValid ( const Weight weight ) {
-    if ( weight <= 0 ){
-        fprintf( stderr, "%s: Cats need to have a weight. \n", PROGRAM_NAME);
-        return false;
-    }
-    return true;
-}
-
-bool isNameValid ( const char name[ MAX_NAME ] ){
-   if ( strlen( name ) <= 0 ) {
-        fprintf( stderr, "%s: Cats need to have a name. \n", PROGRAM_NAME);
-        return false;
-    }
-
-    if ( strlen( name ) >= MAX_NAME ) {
-        fprintf( stderr, "%s: Cats name cannot exceed %d characters. \n", PROGRAM_NAME, MAX_CATS);
-        return false;
-    }
-
-    for ( int i = 0 ; i <= MAX_CATS ; i++ ) {
-        if ( strcmp( cat[i].name, name ) == 0 ) {
-            fprintf( stderr, "%s: Name of each cat must be unique. \n", PROGRAM_NAME);
-            return false;
-        }
-    }
-
-    return true;
-}
-
-bool isIndexValid ( const int index ) {
-    if ( index >= numberOfCats ) {
-        fprintf( stderr, "%s: Cat index must not exceed %d. \n", PROGRAM_NAME, numberOfCats );
-        return false;
-    }
-    return true;
-}
+//bool isWeightValid ( const Weight weight ) {
+//    if ( weight <= 0 ){
+//        fprintf( stderr, "%s: Cats need to have a weight. \n", PROGRAM_NAME);
+//        return false;
+//    }
+//    return true;
+//}
+//
+//bool isNameValid ( const char name[ MAX_NAME ] ){
+//   if ( strlen( name ) <= 0 ) {
+//        fprintf( stderr, "%s: Cats need to have a name. \n", PROGRAM_NAME);
+//        return false;
+//    }
+//
+//    if ( strlen( name ) >= MAX_NAME ) {
+//        fprintf( stderr, "%s: Cats name cannot exceed %d characters. \n", PROGRAM_NAME, MAX_CATS);
+//        return false;
+//    }
+//
+//    for ( int i = 0 ; i <= MAX_CATS ; i++ ) {
+//        if ( strcmp( cat[i].name, name ) == 0 ) {
+//            fprintf( stderr, "%s: Name of each cat must be unique. \n", PROGRAM_NAME);
+//            return false;
+//        }
+//    }
+//
+//    return true;
+//}
+//
+//bool isIndexValid ( const int index ) {
+//    if ( index >= numberOfCats ) {
+//        fprintf( stderr, "%s: Cat index must not exceed %d. \n", PROGRAM_NAME, numberOfCats );
+//        return false;
+//    }
+//    return true;
+//}

@@ -21,13 +21,13 @@
 
 bool updateCatName ( const int index, const char newName[] ) {
 
-    if ( isIndexValid(index) == false) {
+/*    if ( isIndexValid(index) == false) {
         return false;
     }
 
     if ( isNameValid(newName) == false) {
         return false;
-    }
+    }*/
 
 
     strcpy( cat[index].name, newName );
@@ -39,9 +39,9 @@ bool updateCatName ( const int index, const char newName[] ) {
 
 bool fixCat( const int index ) {
 
-    if ( isIndexValid(index) == false ) {
+/*    if ( isIndexValid(index) == false ) {
         return false;
-    }
+    }*/
 
 
     cat[index].isFixed = true;
@@ -51,13 +51,13 @@ bool fixCat( const int index ) {
 
 bool updateCatWeight ( const int index, const Weight newWeight) {
 
-    if ( isIndexValid(index) == false ) {
+/*    if ( isIndexValid(index) == false ) {
         return false;
     }
 
     if ( isWeightValid(newWeight) == false ) {
         return false;
-    }
+    }*/
 
 
     cat[index].weight = newWeight;
@@ -67,9 +67,9 @@ bool updateCatWeight ( const int index, const Weight newWeight) {
 
 bool updateCatCollar1 ( const int index, enum Color newCollarColor1 ) {
 
-    if ( isIndexValid(index) == false ) {
+/*    if ( isIndexValid(index) == false ) {
         return false;
-    }
+    }*/
 
     cat[index].collarColor1 = newCollarColor1;
     return true;
@@ -78,9 +78,9 @@ bool updateCatCollar1 ( const int index, enum Color newCollarColor1 ) {
 
 bool updateCatCollar2 ( const int index, enum Color newCollarColor2 ) {
 
-    if ( isIndexValid(index) == false ) {
+/*    if ( isIndexValid(index) == false ) {
         return false;
-    }
+    }*/
 
     cat[index].collarColor2 = newCollarColor2;
     return true;
@@ -89,9 +89,9 @@ bool updateCatCollar2 ( const int index, enum Color newCollarColor2 ) {
 
 bool updateLicense ( const int index, const unsigned long long newLicense ) {
 
-    if ( isIndexValid(index) == false ) {
+/*    if ( isIndexValid(index) == false ) {
         return false;
-    }
+    }*/
 
     cat[index].license = newLicense;
     return true;
