@@ -110,7 +110,7 @@ bool isWeightValid ( const Weight weight ) {
 }
 
 bool isNameValid ( const char name[ MAX_NAME ] ){
-    if ( strlen( name ) <= 0 ) {
+   if ( strlen( name ) <= 0 ) {
         fprintf( stderr, "%s: Cats need to have a name. \n", PROGRAM_NAME);
         return false;
     }

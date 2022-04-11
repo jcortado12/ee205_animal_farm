@@ -9,8 +9,7 @@
 /// @date   09_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-//#ifndef EE205_LAB_10D_ANIMAL_FARM_2_CAT_H
-//#define EE205_LAB_10D_ANIMAL_FARM_2_CAT_H
+#include "config.h"
 #include "catDatabase.h"
 
 class Cat {
@@ -51,10 +50,13 @@ public:
     void setGender(Gender gender);
     void setBreed(Breed breed);
 
+    static bool isNameValid( const char* newName );
+
 private:
     void zeros();
+
 
 };
 
 
-//#endif //EE205_LAB_10D_ANIMAL_FARM_2_CAT_H
+
