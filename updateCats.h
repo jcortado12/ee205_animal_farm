@@ -25,8 +25,8 @@ extern bool fixCat ( const int index );
 
 extern bool updateCatWeight ( const int index, const Weight newWeight);
 
-extern bool updateCatCollar1 ( const int index, enum Color newCollarColor1 );
-
-extern bool updateCatCollar2 ( const int index, enum Color newCollarColor2 );
-
-extern bool updateLicense ( const int index, const unsigned long long newLicense );
+//extern bool updateCatCollar1 ( const int index, enum Color newCollarColor1 );
+//
+//extern bool updateCatCollar2 ( const int index, enum Color newCollarColor2 );
+//
+//extern bool updateLicense ( const int index, const unsigned long long newLicense );

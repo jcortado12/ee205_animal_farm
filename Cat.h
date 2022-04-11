@@ -25,7 +25,7 @@ public:
 
     Cat();
 
-    Cat (   const   char   *newName,
+    Cat (   const   char    *newName,
             const   Gender  newGender,
             const   Breed   newBreed,
             const   Weight  weight

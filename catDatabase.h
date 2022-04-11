@@ -16,6 +16,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "Cat.h"
+
 #define MAX_NAME (50)
 #define MAX_CATS (1024)
 
@@ -27,31 +29,19 @@ extern int numberOfCats;
 
 
 enum Gender { UNKNOWN_GENDER = 0, MALE, FEMALE };
-
 enum Breed { UNKNOWN_BREED , MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX };
-
-enum Color { BLACK, WHITE, RED, BLUE, GREEN, PINK };
+//enum Color { BLACK, WHITE, RED, BLUE, GREEN, PINK };
 
 const Weight UNKNOWN_WEIGHT = (-1);
 
-struct Cats {
-    char                 name[ MAX_NAME ];
-    enum Gender          gender;
-    enum Breed           breed;
-    bool                 isFixed;
-    Weight               weight;
-    enum Color           collarColor1;
-    enum Color           collarColor2;
-    unsigned long long   license;
-};
-
-
-extern struct Cats cat[];
-
 extern const char* sGender ( const enum Gender gender );
 extern const char* sBreed ( const enum Breed breed );
-extern const char* sColor ( const enum Color color );
+//extern const char* sColor ( const enum Color color );
 
-//extern bool isWeightValid ( const Weight weight );
-//extern bool isNameValid ( const char name[ MAX_NAME ] );
-//extern bool isIndexValid ( const int index );
+
+extern Cat* catDBHeadPtr;
+extern void initializeDB();
+extern bool validateDB();
+extern bool isCatInDatabase();
+
+

@@ -16,21 +16,15 @@
 
 #include "addCats.h"
 #include "catDatabase.h"
+#include "Cat.h"
 
 #include "config.h"
 
-bool addCat (
-        const char name[],
-        const enum Gender gender,
-        const enum Breed breed,
-        const bool isFixed,
-        const Weight weight,
-        const enum Color collarColor1,
-        const enum Color collarColor2,
-        const unsigned long long license
-)
-{
+bool addCat (Cat* newCat) {
 
+
+    numberOfCats++;
+    return true;
 /*    if ( isNameValid(name) == false ) {
         return false;
     }
@@ -39,8 +33,7 @@ bool addCat (
     }*/
 
 
-    strcpy( cat[ numberOfCats ].name, name );
-
+/*    strcpy( cat[ numberOfCats ].name, name );
 
     cat[numberOfCats].gender    =  gender;
     cat[numberOfCats].breed     =  breed;
@@ -49,9 +42,8 @@ bool addCat (
 
     cat[numberOfCats].collarColor1   =  collarColor1;
     cat[numberOfCats].collarColor2   =  collarColor2;
-    cat[numberOfCats].license        =  license;
+    cat[numberOfCats].license        =  license;*/
 
 
-    numberOfCats++;
-    return true;
+
 }
