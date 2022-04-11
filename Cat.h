@@ -39,6 +39,7 @@ public:
     Breed getBreed() const;
     bool isFixed() const;
     Weight getWeight() const;
+    void fixCat();
 
     /////////////Setters///////////
     void setName( const char *newName);
