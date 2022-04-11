@@ -51,6 +51,7 @@ public:
     void setBreed(Breed breed);
 
     static bool isNameValid( const char* newName );
+    static bool isWeightValid( const Weight newWeight );
 
 private:
     void zeros();

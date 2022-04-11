@@ -93,3 +93,11 @@ bool Cat::isNameValid( const char *newName ) {
     return true;
 }
 
+bool Cat::isWeightValid( const Weight newWeight ) {
+    if( newWeight <= 0 ) {
+        fprintf(stderr, "%s: Weight needs to have a weight\n", PROGRAM_NAME);
+        return false;
+    }
+    return true;
+}
+
