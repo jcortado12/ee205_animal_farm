@@ -55,6 +55,9 @@ public:
     static bool isGenderValid( const Gender newGender );
     static bool isBreedValid( const Breed newBreed );
 
+    bool print() const;
+    bool validate() const;
+
 private:
     void zeros();
 

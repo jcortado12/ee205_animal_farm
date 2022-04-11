@@ -63,20 +63,27 @@ Weight Cat::getWeight() const {
 }
 
 /////////Setters//////////////
-void Cat::setWeight(Weight weight) {
+void Cat::setWeight(Weight newWeight) {
+    isWeightValid( newWeight );
     Cat::weight = weight;
 }
-void Cat::setGender(Gender gender) {
+void Cat::setGender(Gender newGender) {
+    if ( gender != UNKNOWN_GENDER ) {
+        fprintf(stderr, "%s: Gender must not be changed\n", PROGRAM_NAME);
+    }
+    isGenderValid( newGender );
     Cat::gender = gender;
 }
-void Cat::setBreed(Breed breed) {
+void Cat::setBreed(Breed newBreed) {
+    isBreedValid( newBreed );
     Cat::breed = breed;
 }
 void Cat::setName(const char *newName) {
+    isNameValid( newName );
     memset(name, 0, MAX_NAME);
     strcpy(name, newName);
 }
-
+////////////////////Validation/////////////////////////
 bool Cat::isNameValid( const char *newName ) {
     if( newName == NULL || newName == nullptr ) {
         fprintf(stderr, "%s: Name != NULL\n", PROGRAM_NAME);
