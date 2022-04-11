@@ -8,9 +8,9 @@
 /// @author Jordan Cortado <jcortado@hawaii.edu>
 /// @date   09_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
+#pragma once
 
 #include "config.h"
-#include "catDatabase.h"
 
 class Cat {
 protected:
@@ -43,7 +43,7 @@ public:
 
     /////////////Setters///////////
     void setName( const char *newName);
-    void setWeight(Weight weight);
+    void setWeight( Weight weight );
 
 protected:
 public:

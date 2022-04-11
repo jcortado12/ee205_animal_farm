@@ -16,15 +16,37 @@
 
 #include "catDatabase.h"
 #include "deleteCats.h"
+#include "Cat.h"
 
 #include "config.h"
 
-void deleteAllCats () {
+bool deleteCat(Cat* byeCat){
+    if( byeCat == catDBHeadPtr ) {
+        catDBHeadPtr = catDBHeadPtr->next;
+        delete byeCat;
+        numberOfCats--;
 
-    memset(&cat, 0, sizeof(struct Cats));
+        return true;
+    }
 
-    numberOfCats = 0;
+    Cat* index = catDBHeadPtr;
+    while (index != nullptr ) {
+        if( index->next == byeCat ) {
+            index->next = byeCat->next ;
+            delete byeCat ;
+            numberOfCats--;
 
-    printf("\nDeleted all cats. Database is empty.\n\n");
+            assert( validateDB() ) ;
 
+            return true ;
+        }
+        index = index->next ;
+    }
+}
+
+bool deleteAllCats () {
+    while( catDBHeadPtr != nullptr ) {
+        deleteCat( catDBHeadPtr );
+    }
+    return true;
 }

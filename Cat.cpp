@@ -16,9 +16,8 @@
 #include <iomanip>
 #include <cassert>
 
-#include "config.h"
 #include "Cat.h"
-#include "catDatabase.h"
+#include "reportCats.h"
 
 //////namespace///////
 using namespace std;
@@ -38,7 +37,7 @@ Cat::Cat() {
 Cat::Cat(   const   char    *newName,
             const   Gender  newGender,
             const   Breed   newBreed,
-            const   Weight  newWeight) {
+            const   Weight  newWeight) : Cat() {
     setName( newName );
     setGender( newGender );
     setBreed( newBreed );

@@ -16,8 +16,15 @@
 #include <string.h>
 #include <stdlib.h>
 
-extern bool printCat ( const int index );
+#include "Cat.h"
+#include "config.h"
+
+//extern bool printCat ( const int index );
 
 extern bool printAllCats();
 
-extern int findCat ( const char name[] );
+extern Cat* findCatByName( const char* name );
+
+extern const char* sGender ( const enum Gender gender );
+extern const char* sBreed ( const enum Breed breed );
+

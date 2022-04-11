@@ -16,7 +16,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "catDatabase.h"
 #include "Cat.h"
 
 extern bool addCat ( Cat* newCat );

@@ -16,4 +16,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-extern void deleteAllCats();
+#include "Cat.h"
+
+extern bool deleteAllCats();
+extern bool deleteCat( Cat* byeCat );

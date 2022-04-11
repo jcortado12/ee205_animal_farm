@@ -16,12 +16,20 @@
 
 #include "addCats.h"
 #include "catDatabase.h"
-#include "Cat.h"
+//#include "config.h"
 
 #include "config.h"
 
 bool addCat (Cat* newCat) {
+    newCat->validate();
 
+    if( isCatInDatabase( newCat ) ) {
+        fprintf(stderr, "%s: No duplicate cats, %s is already in the database\n", PROGRAM_NAME);
+    }
+
+    newCat->next = catDBHeadPtr;
+
+    catDBHeadPtr = newCat;
 
     numberOfCats++;
     return true;

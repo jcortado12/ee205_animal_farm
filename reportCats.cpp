@@ -16,9 +16,11 @@
 
 #include "catDatabase.h"
 #include "reportCats.h"
+#include "Cat.h"
 
 #include "config.h"
 
+/*
 bool printCat ( const int index ) {
 
     if ( index < 0 || index >= MAX_CATS ) {
@@ -40,31 +42,73 @@ bool printCat ( const int index ) {
 
     return true;
 }
+*/
 
 
 bool printAllCats() {
+    int numCats = 0;
 
-    if ( numberOfCats == 0 ){
-        fprintf( stderr, "%s: No cats in the database.\n\n", PROGRAM_NAME);
-        return false;
+    for(Cat* index = catDBHeadPtr ; index != nullptr ; index = index->next ) {
+        index->print() ;
+        numCats++ ;
     }
-
-    for ( int index = 0; index < numberOfCats; ++index){
-        printCat( index );
-    }
-
     return true;
 }
 
+Cat* findCatByName( const char* name ) {
+    assert( Cat().isNameValid( name ) );
 
-int findCat( const char name[] ){
-
-    for ( int index = 0; index <= MAX_CATS; index++ ){
-        if ( strcmp( cat[ index ].name, name ) == 0 ) {
-            printf("\n[%s] is cat number [%d]\n", cat[ index ].name, index);
-            return index;
+    for(Cat* index = catDBHeadPtr ; index != nullptr ; index = index->next ) {
+        if(strcmp(name, index->getName() ) == 0 ) {
+            return index ;
         }
     }
+    return nullptr ;
+}
 
-    return false;
+////////////////////////////enum to string/////////////////////////////////
+const char* sGender ( const enum Gender gender ) {
+    switch ( gender ) {
+        case 0:
+            return "Unknown Gender";
+            break;
+
+        case 1:
+            return "Male";
+            break;
+
+        case 2:
+            return "Female";
+            break;
+    }
+    return "null";
+}
+
+const char* sBreed ( const enum Breed breed ) {
+    switch ( breed ) {
+        case 0:
+            return "Unknown Breed";
+            break;
+
+        case 1:
+            return "Maine Coon";
+            break;
+
+        case 2:
+            return "Manx";
+            break;
+
+        case 3:
+            return "Shorthair";
+            break;
+
+        case 4:
+            return "Persian";
+            break;
+
+        case 5:
+            return "Sphynx";
+            break;
+    }
+    return "null";
 }

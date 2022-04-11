@@ -17,7 +17,6 @@
 #include "catDatabase.h"
 #include "addCats.h"
 #include "reportCats.h"
-#include "updateCats.h"
 #include "deleteCats.h"
 #include "Cat.h"
 
@@ -29,17 +28,17 @@
 
 //#define DEBUG
 
-int main ( ) {
+/*int main ( ) {
 
     printf("\nStarting Animal Farm 1\n\n");
 
 
-    /*addCat( "Loki",   MALE,             PERSIAN,    true,     8.5,    BLACK,   WHITE,   101 );
+    *//*addCat( "Loki",   MALE,             PERSIAN,    true,     8.5,    BLACK,   WHITE,   101 );
     addCat( "Milo",   MALE,             MANX,       true,     7.0,    BLACK,   RED,     102 );
     addCat( "Bella",  FEMALE,           MAINE_COON, true,    18.2,    BLACK,   BLUE,    103 );
     addCat( "Kali",   FEMALE,           SHORTHAIR,  false,    9.2,    BLACK,   GREEN,   104 );
     addCat( "Trin",   FEMALE,           MANX,       true,    12.2,    BLACK,   PINK,    105 );
-    addCat( "Chili",  UNKNOWN_GENDER,   SHORTHAIR,  true,    7.0,     WHITE,   BLACK,   106 );*/
+    addCat( "Chili",  UNKNOWN_GENDER,   SHORTHAIR,  true,    7.0,     WHITE,   BLACK,   106 );*//*
 
 #ifdef DEBUG
     /////////////////////////////////addCat validation testing///////////////////////////////////////////
@@ -80,11 +79,11 @@ int main ( ) {
     int kali = findCat ( "Kali" );
     printCat ( kali );
 
-/*    updateCatName ( kali, "Capulet" );
+*//*    updateCatName ( kali, "Capulet" );
     updateCatWeight ( kali, 9.9 ) ;
     updateCatCollar1 ( kali, WHITE );
     updateCatCollar2 ( kali, BLACK );
-    updateLicense ( kali, 99 );*/
+    updateLicense ( kali, 99 );*//*
 
     fixCat ( kali );
     printCat ( kali );
@@ -98,4 +97,4 @@ int main ( ) {
     printf("Done with Animal Farm 1\n\n");
 
     return EXIT_SUCCESS;
-}
+}*/
