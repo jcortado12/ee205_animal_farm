@@ -52,6 +52,8 @@ public:
 
     static bool isNameValid( const char* newName );
     static bool isWeightValid( const Weight newWeight );
+    static bool isGenderValid( const Gender newGender );
+    static bool isBreedValid( const Breed newBreed );
 
 private:
     void zeros();

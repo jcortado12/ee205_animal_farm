@@ -101,3 +101,19 @@ bool Cat::isWeightValid( const Weight newWeight ) {
     return true;
 }
 
+bool Cat::isBreedValid(const Breed newBreed) {
+    if( newBreed == UNKNOWN_BREED ){
+        fprintf(stderr, "%s: Cat breed must be known\n", PROGRAM_NAME);
+        return false;
+    }
+    return true;
+}
+
+bool Cat::isGenderValid(const Gender newGender) {
+    if ( newGender == UNKNOWN_GENDER ){
+        fprintf(stderr, "%s: Cat gender must be known\n", PROGRAM_NAME);
+        return false;
+    }
+    return true;
+}
+
