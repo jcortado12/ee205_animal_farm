@@ -14,6 +14,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <cassert>
+#include <iostream>
 
 #include "catDatabase.h"
 #include "deleteCats.h"
@@ -21,11 +22,20 @@
 
 #include "config.h"
 
+using namespace std;
+
 bool deleteCat(Cat* byeCat){
+    assert( validateDB() );
+    assert( byeCat != nullptr );
+
     if( byeCat == catDBHeadPtr ) {
         catDBHeadPtr = catDBHeadPtr->next;
         delete byeCat;
         numberOfCats--;
+
+        assert( validateDB() );
+
+        cout << "Cat successfully deleted" << endl;
 
         return true;
     }
@@ -39,15 +49,26 @@ bool deleteCat(Cat* byeCat){
 
             assert( validateDB() );
 
+            cout << "Cat successfully deleted" << endl;
+
             return true;
         }
         index = index->next;
     }
+
+    assert( validateDB() );
+
+    cerr << PROGRAM_NAME << ": This Cat can not be deleted" << endl;
 }
 
 bool deleteAllCats () {
     while( catDBHeadPtr != nullptr ) {
         deleteCat( catDBHeadPtr );
     }
+
+    numberOfCats == 0;
+
+    cout << "Database successfully deleted" << endl;
+
     return true;
 }
