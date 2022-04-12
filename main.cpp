@@ -13,6 +13,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <exception>
+#include <iostream>
 
 #include "catDatabase.h"
 #include "addCats.h"
@@ -26,38 +28,124 @@
 #define MAX_NAME2 "DIFFERENT 123456789012345678901234567890123456789"
 #define ILLEGAL_NAME "12345678901234567890123456789012345678901234567890"
 
-#define DEBUG
+//#define DEBUG
+
+using namespace std;
 
 int main ( ) {
 
     printf("\nStarting Animal Farm 2\n\n");
 
+    initializeDB();
 
-   /* addCat( "Loki",   MALE,             PERSIAN,    true,     8.5,    BLACK,   WHITE,   101 );
-    addCat( "Milo",   MALE,             MANX,       true,     7.0,    BLACK,   RED,     102 );
-    addCat( "Bella",  FEMALE,           MAINE_COON, true,    18.2,    BLACK,   BLUE,    103 );
-    addCat( "Kali",   FEMALE,           SHORTHAIR,  false,    9.2,    BLACK,   GREEN,   104 );
-    addCat( "Trin",   FEMALE,           MANX,       true,    12.2,    BLACK,   PINK,    105 );
-    addCat( "Chili",  UNKNOWN_GENDER,   SHORTHAIR,  true,    7.0,     WHITE,   BLACK,   106 );*/
+    #ifdef DEBUG
+    {
+        // Verify that a cat's default values are set
+        Cat testCat = Cat();
+        assert(testCat.getName() != nullptr );
+        assert(strcmp(testCat.getName(), "") == 0);
+        assert(testCat.getGender() == UNKNOWN_GENDER);
+        assert(testCat.getBreed() == UNKNOWN_BREED);
+        assert(testCat.isFixed() == false);
+        assert(testCat.getWeight() == UNKNOWN_WEIGHT);
+        assert(!testCat.isFixed());
+        assert(!testCat.validate());  // The default cat is invalid
 
+        // Test for NULL name
+        try {
+            testCat.setName(nullptr);
+            assert(false); // We should never get here
+        } catch (exception const &e) {}
 
-   {
-       Cat testCat = Cat();
-       assert(testCat.getName() != nullptr );
-       assert(strcmp(testCat.getName(), "") == 0);
-       assert(testCat.getGender() == UNKNOWN_GENDER);
-       assert(testCat.getBreed() == UNKNOWN_BREED);
-       assert(testCat.isFixed() == false);
-       assert(testCat.getWeight() == UNKNOWN_WEIGHT);
-       assert(!testCat.isFixed());
-       assert(!testCat.validate());
+        // Test for empty name
+        try {
+            testCat.setName("");
+            assert(false); // We should never get here
+        } catch (exception const &e) {}
 
-       //assert(testCat.setName(nullptr) == false);
+        // Test valid names
+        testCat.setName("A");       // A 1 character name is valid
+        testCat.setName(MAX_NAME1); // A MAX_NAME1 name is valid
 
-    };
+        // Test for name too large
+        try {
+            testCat.setName(ILLEGAL_NAME);
+            assert(false); // We should never get here
+        } catch (exception const &e) {}
 
+        testCat.setGender(FEMALE);
 
-    printf("Done with Animal Farm 2\n\n");
+        try {
+            testCat.setGender(MALE);
+            assert(false); // We should never get here
+        } catch (exception const &e) {}
 
-    return EXIT_SUCCESS;
+        testCat.setBreed(MAINE_COON);
+
+        try {
+            testCat.setBreed(MANX);
+            assert(false); // We should never get here
+        } catch (exception const &e) {}
+
+        testCat.fixCat();
+        assert(testCat.isFixed());
+
+        // Test for Weight <= 0
+        try {
+            testCat.setWeight(0);
+            assert(false); // We should never get here
+        } catch (exception const &e) {}
+
+        testCat.setWeight(1.0 / 1024);
+        assert(testCat.getWeight() == 1.0 / 1024);
+
+        assert(testCat.validate());  // The cat should now be valid
+        testCat.print() ;
+
+        assert(!isCatInDatabase(&testCat)) ;
+    }
+    #endif
+
+    bool result ;
+    result = addCat( new Cat( "Loki", MALE, PERSIAN, 1.0 )) ;
+    assert( result ) ;
+    if( !result ) throw logic_error ("addCat() failed") ;
+    result = addCat( new Cat( "Milo", MALE, MANX , 1.1 )) ;
+    assert( result ) ;
+    result = addCat( new Cat( "Bella", FEMALE, MAINE_COON, 1.2 )) ;
+    assert( result ) ;
+    result = addCat( new Cat( "Kali", FEMALE, SHORTHAIR, 1.3 )) ;
+    assert( result ) ;
+    result = addCat( new Cat( "Trin", FEMALE, MANX, 1.4 )) ;
+    assert( result ) ;
+    result = addCat( new Cat( "Chili", MALE, SHORTHAIR, 1.5 )) ;
+    assert( result ) ;
+
+    #ifdef DEBUG
+    {
+        // Test finding a cat...
+        Cat *bella = findCatByName("Bella");
+        assert(bella != nullptr);
+        // Test not finding a cat
+        assert(findCatByName("Bella's not here") == nullptr);
+
+        // Test deleting a cat...
+        assert(deleteCat(bella) == true);
+        try {
+            deleteCat(bella); // Verify that Bella's not there
+        } catch (exception const &e) {}
+
+        bella = nullptr;
+    }
+#endif
+
+    printAllCats() ;
+
+    deleteAllCats() ;
+
+    printAllCats() ;
+
+    printf ("Done with Animal Farm 2");
+
+    return EXIT_SUCCESS  ;
 }

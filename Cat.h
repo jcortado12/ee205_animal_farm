@@ -17,7 +17,7 @@ protected:
     char                name[MAX_NAME];
     enum    Gender      gender;
     enum    Breed       breed;
-    bool                isCatFixed;
+    bool                isFixed;
     Weight              weight;
 
 public:
@@ -28,18 +28,18 @@ public:
     Cat (   const   char    *newName,
             const   Gender  newGender,
             const   Breed   newBreed,
-            const   Weight  weight
+            const   Weight  newWeight
             );
 
     virtual ~Cat();
 
     ///////////Getters////////////
-    const char *getName() const;
-    Gender getGender() const;
-    Breed getBreed() const;
-    bool isFixed() const;
-    Weight getWeight() const;
-    void fixCat();
+    const char *getName() const noexcept;
+    Gender getGender() const noexcept;
+    Breed getBreed() const noexcept;
+    bool isCatFixed() const noexcept;
+    Weight getWeight() const noexcept;
+    void fixCat() noexcept;
 
     /////////////Setters///////////
     void setName( const char *newName);
@@ -56,8 +56,8 @@ public:
     static bool isGenderValid( const Gender newGender );
     static bool isBreedValid( const Breed newBreed );
 
-    bool print() const;
-    bool validate() const;
+    bool print() const noexcept;
+    bool validate() const noexcept;
 
 private:
     void zeros();

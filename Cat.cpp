@@ -26,7 +26,7 @@ void Cat::zeros() {
     memset ( name, 0, MAX_NAME );
     gender = UNKNOWN_GENDER;
     breed = UNKNOWN_BREED;
-    isCatFixed = false;
+    isFixed = false;
     weight = UNKNOWN_WEIGHT;
 }
 
@@ -49,38 +49,66 @@ Cat::~Cat() {
 }
 
 /////////////Getters/////////////////
-const char *Cat::getName() const {
+const char *Cat::getName() const noexcept {    ////Name
     return name;
 }
 
-Gender Cat::getGender() const {
+Gender Cat::getGender() const noexcept {        ////Gender
     return gender;
 }
 
-Breed Cat::getBreed() const {
+Breed Cat::getBreed() const noexcept {           ////Breed
     return breed;
 }
 
-bool Cat::isFixed() const {
-    return isCatFixed;
+bool Cat::isCatFixed() const noexcept{              ////Fixed
+    return isFixed;
 }
 
-Weight Cat::getWeight() const {
+Weight Cat::getWeight() const noexcept {        ////Weight
     return weight;
+}
+
+//////////////////////////Setters///////////////////////////
+void Cat::setName(const char *newName) {        ////Name
+    isNameValid( newName );
+    memset(name, 0, MAX_NAME);
+    strcpy(name, newName);
+}
+void Cat::setGender(Gender newGender) {         ////Gender
+    if ( gender != UNKNOWN_GENDER ) {
+        cerr << PROGRAM_NAME << ": Gender can not be changed" << endl;
+    }
+    isGenderValid( newGender );
+    Cat::gender = newGender;
+}
+void Cat::setBreed(Breed newBreed) {        ////Breed
+    if( breed != UNKNOWN_BREED ) {
+        cerr << PROGRAM_NAME << ": Breed can not be changed" << endl;
+    }
+    isBreedValid( newBreed );
+    Cat::breed = newBreed;
+}
+void Cat::fixCat() noexcept {
+    Cat::isFixed = true;
+}
+void Cat::setWeight(Weight newWeight) {
+    isWeightValid( newWeight );
+    Cat::weight = newWeight;
 }
 
 ////////////////////Validation/////////////////////////
 bool Cat::isNameValid( const char *newName ) {
-    if( newName == NULL || newName == nullptr ) {
-        fprintf(stderr, "%s: Name != NULL\n", PROGRAM_NAME);
+    if( newName == nullptr ) {
+        cerr << PROGRAM_NAME << ": Name must not be NULL" << endl;
         return false;
     }
     if( strlen(newName) <= 0 ) {
-        fprintf(stderr, "%s: Name length must be greater than 0\n", PROGRAM_NAME);
+        cerr << PROGRAM_NAME << ": Name must be > 0 " << endl;
         return false;
     }
     if( strlen(newName) >= MAX_NAME ) {
-        fprintf(stderr, "%s: Name must not be greater than %d characters\n", PROGRAM_NAME);
+        cerr << PROGRAM_NAME << ": name must be less than " << MAX_CATS << endl;
         return false;
     }
     return true;
@@ -88,7 +116,7 @@ bool Cat::isNameValid( const char *newName ) {
 
 bool Cat::isWeightValid( const Weight newWeight ) {
     if( newWeight <= 0 ) {
-        fprintf(stderr, "%s: Weight needs to have a weight\n", PROGRAM_NAME);
+        cerr << PROGRAM_NAME << ": Weight must be > 0 " << endl;
         return false;
     }
     return true;
@@ -96,7 +124,7 @@ bool Cat::isWeightValid( const Weight newWeight ) {
 
 bool Cat::isBreedValid(const Breed newBreed) {
     if( newBreed == UNKNOWN_BREED ){
-        fprintf(stderr, "%s: Cat breed must be known\n", PROGRAM_NAME);
+        cerr << PROGRAM_NAME << ": Breed must be known " << endl;
         return false;
     }
     return true;
@@ -104,39 +132,16 @@ bool Cat::isBreedValid(const Breed newBreed) {
 
 bool Cat::isGenderValid(const Gender newGender) {
     if ( newGender == UNKNOWN_GENDER ){
-        fprintf(stderr, "%s: Cat gender must be known\n", PROGRAM_NAME);
+        cerr << PROGRAM_NAME << ": Gender must be known " << endl;
         return false;
     }
     return true;
 }
 
-/////////Setters//////////////
-void Cat::setWeight(Weight newWeight) {
-    isWeightValid( newWeight );
-    Cat::weight = weight;
-}
-void Cat::setGender(Gender newGender) {
-    if ( gender != UNKNOWN_GENDER ) {
-        fprintf(stderr, "%s: Gender must not be changed\n", PROGRAM_NAME);
-    }
-    isGenderValid( newGender );
-    Cat::gender = gender;
-}
-void Cat::setBreed(Breed newBreed) {
-    isBreedValid( newBreed );
-    Cat::breed = breed;
-}
-void Cat::setName(const char *newName) {
-    isNameValid( newName );
-    memset(name, 0, MAX_NAME);
-    strcpy(name, newName);
-}
-void Cat::fixCat() {
-    Cat::isCatFixed = true;
-}
+
 
 /////////////////Validate////////////
-bool Cat::validate() const {
+bool Cat::validate() const noexcept {
     if (isNameValid( name ) == false) {
         return false;
     }
@@ -155,7 +160,7 @@ bool Cat::validate() const {
 /////////////////Print/////////////////
 #define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
 
-bool Cat::print() const {
+bool Cat::print() const noexcept{
     assert( validate() ) ;
 
     cout << setw(80) << setfill( '=' ) << "" << endl ;
@@ -165,7 +170,7 @@ bool Cat::print() const {
     FORMAT_LINE( "Cat", "name" )         << getName()   << endl ;
     FORMAT_LINE( "Cat", "gender" )       << sGender( getGender() ) << endl ;
     FORMAT_LINE( "Cat", "breed" )        << sBreed( getBreed() )   << endl ;
-    FORMAT_LINE( "Cat", "isFixed" )      << isFixed()   << endl ;
+    FORMAT_LINE( "Cat", "isFixed" )      << isCatFixed()   << endl ;
     FORMAT_LINE( "Cat", "weight" )       << getWeight() << endl ;
 
     return true ;
