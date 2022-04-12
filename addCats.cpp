@@ -13,6 +13,8 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
+#include <cassert>
+#include <iostream>
 
 #include "addCats.h"
 #include "catDatabase.h"
@@ -20,38 +22,23 @@
 
 #include "config.h"
 
-bool addCat (Cat* newCat) {
-    newCat->validate();
+using namespace std;
 
-    if(isCatInDatabase( newCat )) {
-        fprintf(stderr, "%s: No duplicate cats, %s is already in the database\n", PROGRAM_NAME);
+bool addCat (Cat* newCat) {
+
+    assert(newCat != nullptr);
+
+    if ((newCat->validate()) == false) {
+        cerr << PROGRAM_NAME << ": Bad Cat in addCats" << endl;
     }
 
-    newCat->next = catDBHeadPtr;
+    assert(validateDB());
 
+    newCat->next = catDBHeadPtr;
     catDBHeadPtr = newCat;
+
+    cout << "Successfully added Cat" << endl;
 
     numberOfCats++;
     return true;
-/*    if ( isNameValid(name) == false ) {
-        return false;
-    }
-    if ( isWeightValid(weight) == false ){
-        return false;
-    }*/
-
-
-/*    strcpy( cat[ numberOfCats ].name, name );
-
-    cat[numberOfCats].gender    =  gender;
-    cat[numberOfCats].breed     =  breed;
-    cat[numberOfCats].isFixed   =  isFixed;
-    cat[numberOfCats].weight    =  weight;
-
-    cat[numberOfCats].collarColor1   =  collarColor1;
-    cat[numberOfCats].collarColor2   =  collarColor2;
-    cat[numberOfCats].license        =  license;*/
-
-
-
 }
