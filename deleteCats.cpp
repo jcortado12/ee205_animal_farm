@@ -59,6 +59,7 @@ bool deleteCat(Cat* byeCat){
     assert( validateDB() );
 
     cerr << PROGRAM_NAME << ": This Cat can not be deleted" << endl;
+    return NULL;
 }
 
 bool deleteAllCats () {
