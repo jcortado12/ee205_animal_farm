@@ -13,6 +13,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
+#include <cassert>
 
 #include "catDatabase.h"
 #include "deleteCats.h"
@@ -36,11 +37,11 @@ bool deleteCat(Cat* byeCat){
             delete byeCat ;
             numberOfCats--;
 
-            assert( validateDB() ) ;
+            assert( validateDB() );
 
-            return true ;
+            return true;
         }
-        index = index->next ;
+        index = index->next;
     }
 }
 

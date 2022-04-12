@@ -23,7 +23,7 @@
 bool addCat (Cat* newCat) {
     newCat->validate();
 
-    if( isCatInDatabase( newCat ) ) {
+    if(isCatInDatabase( newCat )) {
         fprintf(stderr, "%s: No duplicate cats, %s is already in the database\n", PROGRAM_NAME);
     }
 

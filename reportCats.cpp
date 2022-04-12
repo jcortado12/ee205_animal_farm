@@ -13,6 +13,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
+#include <cassert>
 
 #include "catDatabase.h"
 #include "reportCats.h"

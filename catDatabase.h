@@ -20,8 +20,6 @@
 
 
 
-
-
 extern int numberOfCats;
 
 
@@ -31,6 +29,6 @@ extern int numberOfCats;
 extern Cat* catDBHeadPtr;
 extern void initializeDB();
 extern bool validateDB();
-extern bool isCatInDatabase();
+extern bool isCatInDatabase(const Cat *aCat);
 
 

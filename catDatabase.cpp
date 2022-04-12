@@ -13,13 +13,15 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
+#include <cassert>
+#include <iostream>
 
 #include "catDatabase.h"
 #include "Cat.h"
 #include "config.h"
+#include "reportCats.h"
 
 using namespace std;
-
 int numberOfCats = 0;
 
 
@@ -42,7 +44,7 @@ bool validateDB() {
 
         Cat* foundCat = findCatByName( index->getName() ) ;
         if( foundCat != index ) {
-            cout << PROGRAM_NAME ": Warning:  Duplicate names are prohibited [" << index->getName() << "]" << endl ;
+            fprintf(stderr, "%s: Warning:  Duplicate names are prohibited\n", PROGRAM_NAME) ;
         }
 
         validCats++ ;
@@ -58,7 +60,7 @@ bool validateDB() {
 bool isCatInDatabase( const Cat* aCat ) {
     assert( aCat != nullptr ) ;
 
-    assert( validateDatabase() ) ;
+    assert( validateDB() ) ;
 
     for(Cat* index = catDBHeadPtr ; index != nullptr ; index = index->next ) {
         if( index == aCat ) {
@@ -66,7 +68,7 @@ bool isCatInDatabase( const Cat* aCat ) {
         }
     }
 
-    assert( validateDatabase() ) ;
+    assert( validateDB() ) ;
 
     return false ;
 }
