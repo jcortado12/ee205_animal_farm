@@ -19,10 +19,8 @@
 #include "Cat.h"
 #include "config.h"
 
-//extern bool printCat ( const int index );
 
 extern bool printAllCats();
-
 extern Cat* findCatByName( const char* name );
 
 

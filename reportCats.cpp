@@ -14,6 +14,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <cassert>
+#include <iostream>
 
 #include "catDatabase.h"
 #include "reportCats.h"
@@ -21,32 +22,12 @@
 
 #include "config.h"
 
-/*
-bool printCat ( const int index ) {
-
-    if ( index < 0 || index >= MAX_CATS ) {
-        fprintf( stderr, "%s: Bad cat [%d] \n", PROGRAM_NAME, index);
-        return false;
-    }
-    printf( "\n--------------------\n" );
-    printf( "cat index = [%d] \n",   index);
-    printf( "name = [%s] \n",        cat[index].name);
-    printf( "gender = [%s] \n",      sGender(cat[index].gender));
-    printf( "breed = [%s] \n",       sBreed(cat[index].breed));
-    printf( "isFixed = [%d] \n",     cat[index].isFixed);
-    printf( "weight = [%f] \n",      cat[index].weight);
-
-    printf( "collar color 1 = [%s] \n",    sColor(cat[index].collarColor1));
-    printf( "collar color 2 = [%s] \n",    sColor(cat[index].collarColor2));
-    printf( "license # = [%llu] \n",       cat[index].license);
-    printf( "--------------------\n" );
-
-    return true;
-}
-*/
-
+using namespace std;
 
 bool printAllCats() {
+
+    assert( validateDB() );
+
     int numCats = 0;
 
     for(Cat* index = catDBHeadPtr ; index != nullptr ; index = index->next ) {
@@ -57,6 +38,7 @@ bool printAllCats() {
 }
 
 Cat* findCatByName( const char* name ) {
+
     assert( Cat().isNameValid( name ) );
 
     for(Cat* index = catDBHeadPtr ; index != nullptr ; index = index->next ) {
@@ -64,7 +46,8 @@ Cat* findCatByName( const char* name ) {
             return index ;
         }
     }
-    return nullptr ;
+
+    cerr << PROGRAM_NAME << "Unable to find cat. Cat not in the database. Check spelling" << endl;
 }
 
 
