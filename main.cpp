@@ -24,17 +24,13 @@
 
 #include "config.h"
 
-#define MAX_NAME1 "1234567890123456789012345678901234567890123456789"
-#define MAX_NAME2 "DIFFERENT 123456789012345678901234567890123456789"
-#define ILLEGAL_NAME "12345678901234567890123456789012345678901234567890"
-
 //#define DEBUG
 
 using namespace std;
 
 int main ( ) {
 
-    printf("\nStarting Animal Farm 2\n\n");
+    cout << "Starting Animal Farm 2 " << endl;
 
     initializeDB();
 
@@ -46,9 +42,9 @@ int main ( ) {
         assert(strcmp(testCat.getName(), "") == 0);
         assert(testCat.getGender() == UNKNOWN_GENDER);
         assert(testCat.getBreed() == UNKNOWN_BREED);
-        assert(testCat.isFixed() == false);
+        assert(testCat.isCatFixed() == false);
         assert(testCat.getWeight() == UNKNOWN_WEIGHT);
-        assert(!testCat.isFixed());
+        assert(!testCat.isCatFixed());
         assert(!testCat.validate());  // The default cat is invalid
 
         // Test for NULL name
@@ -88,7 +84,7 @@ int main ( ) {
         } catch (exception const &e) {}
 
         testCat.fixCat();
-        assert(testCat.isFixed());
+        assert(testCat.isCatFixed());
 
         // Test for Weight <= 0
         try {
@@ -106,20 +102,12 @@ int main ( ) {
     }
     #endif
 
-    bool result ;
-    result = addCat( new Cat( "Loki", MALE, PERSIAN, 1.0 )) ;
-    assert( result ) ;
-    if( !result ) throw logic_error ("addCat() failed") ;
-    result = addCat( new Cat( "Milo", MALE, MANX , 1.1 )) ;
-    assert( result ) ;
-    result = addCat( new Cat( "Bella", FEMALE, MAINE_COON, 1.2 )) ;
-    assert( result ) ;
-    result = addCat( new Cat( "Kali", FEMALE, SHORTHAIR, 1.3 )) ;
-    assert( result ) ;
-    result = addCat( new Cat( "Trin", FEMALE, MANX, 1.4 )) ;
-    assert( result ) ;
-    result = addCat( new Cat( "Chili", MALE, SHORTHAIR, 1.5 )) ;
-    assert( result ) ;
+    addCat( new Cat( "Loki", MALE, PERSIAN, 1.0 )) ;
+    addCat( new Cat( "Milo", MALE, MANX , 1.1 )) ;
+    addCat( new Cat( "Bella", FEMALE, MAINE_COON, 1.2 )) ;
+    addCat( new Cat( "Kali", FEMALE, SHORTHAIR, 1.3 )) ;
+    addCat( new Cat( "Trin", FEMALE, MANX, 1.4 )) ;
+    addCat( new Cat( "Chili", MALE, SHORTHAIR, 1.5 )) ;
 
     #ifdef DEBUG
     {
@@ -137,7 +125,7 @@ int main ( ) {
 
         bella = nullptr;
     }
-#endif
+    #endif
 
     printAllCats() ;
 
@@ -145,7 +133,6 @@ int main ( ) {
 
     printAllCats() ;
 
-    printf ("Done with Animal Farm 2");
-
+    cout << "Done with Animal Farm 2" << endl;
     return EXIT_SUCCESS  ;
 }
