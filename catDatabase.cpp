@@ -22,15 +22,14 @@
 #include "reportCats.h"
 
 using namespace std;
+
 int numberOfCats = 0;
 
-
-
-Cat* catDBHeadPtr = nullptr;
+Cat* catDBHeadPtr = nullptr;        ////Head pointer
 
 void initializeDB(){
     if( catDBHeadPtr != nullptr ) {
-        fprintf(stderr, "Delete old database first", PROGRAM_NAME);
+        cerr << PROGRAM_NAME << ": Delete old database " << endl;
     }
 }
 
@@ -50,7 +49,7 @@ bool validateDB() {
         validCats++ ;
     }
     if( validCats != numberOfCats ) {
-        cout << PROGRAM_NAME << ": Error:  numberOfCats [" << numberOfCats
+        cerr << PROGRAM_NAME << ": Error:  numberOfCats [" << numberOfCats
              << "] does not equal [" << validCats << "]" << endl ;
         return false ;
     }
@@ -71,4 +70,51 @@ bool isCatInDatabase( const Cat* aCat ) {
     assert( validateDB() ) ;
 
     return false ;
+}
+
+////////////////////////////enum to string/////////////////////////////////
+const char* sGender ( const enum Gender gender ) {
+    switch ( gender ) {
+        case 0:
+            return "Unknown Gender";
+            break;
+
+        case 1:
+            return "Male";
+            break;
+
+        case 2:
+            return "Female";
+            break;
+    }
+    return "null";
+}
+
+const char* sBreed ( const enum Breed breed ) {
+    switch ( breed ) {
+        case 0:
+            return "Unknown Breed";
+            break;
+
+        case 1:
+            return "Maine Coon";
+            break;
+
+        case 2:
+            return "Manx";
+            break;
+
+        case 3:
+            return "Shorthair";
+            break;
+
+        case 4:
+            return "Persian";
+            break;
+
+        case 5:
+            return "Sphynx";
+            break;
+    }
+    return "null";
 }

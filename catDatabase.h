@@ -18,17 +18,14 @@
 
 #include "Cat.h"
 
-
-
 extern int numberOfCats;
-
-
-
-
 
 extern Cat* catDBHeadPtr;
 extern void initializeDB();
 extern bool validateDB();
 extern bool isCatInDatabase(const Cat *aCat);
+
+extern const char* sGender ( const enum Gender gender );
+extern const char* sBreed ( const enum Breed breed );
 
 

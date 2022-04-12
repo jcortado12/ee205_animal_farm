@@ -67,49 +67,4 @@ Cat* findCatByName( const char* name ) {
     return nullptr ;
 }
 
-////////////////////////////enum to string/////////////////////////////////
-const char* sGender ( const enum Gender gender ) {
-    switch ( gender ) {
-        case 0:
-            return "Unknown Gender";
-            break;
 
-        case 1:
-            return "Male";
-            break;
-
-        case 2:
-            return "Female";
-            break;
-    }
-    return "null";
-}
-
-const char* sBreed ( const enum Breed breed ) {
-    switch ( breed ) {
-        case 0:
-            return "Unknown Breed";
-            break;
-
-        case 1:
-            return "Maine Coon";
-            break;
-
-        case 2:
-            return "Manx";
-            break;
-
-        case 3:
-            return "Shorthair";
-            break;
-
-        case 4:
-            return "Persian";
-            break;
-
-        case 5:
-            return "Sphynx";
-            break;
-    }
-    return "null";
-}
