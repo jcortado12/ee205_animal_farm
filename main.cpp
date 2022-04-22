@@ -30,7 +30,7 @@ using namespace std;
 
 int main ( ) {
 
-    cout << "Starting Animal Farm 2 " << endl;
+    cout << "Starting Animal Farm 3 " << endl;
 
     initializeDB();
 
