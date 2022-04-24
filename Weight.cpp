@@ -173,7 +173,7 @@ float Weight::convertWeight(float fromWeight,
     return toWeight;
 }
 
-////////////////////////////////////print/////////////////////////////////////
+////////////////////////////////////dump/////////////////////////////////////
 void Weight::print()	const noexcept{
     std::cout << std::setw(80) << std::setfill( '=' ) << "" << std::endl ;
     std::cout << std::setfill( ' ' ) ;

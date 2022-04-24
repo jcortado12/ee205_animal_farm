@@ -10,13 +10,24 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-#define PROGRAM_NAME ("Animal Farm 2")
+#include <iomanip>
+
+#define PROGRAM_NAME ("Animal Farm 3")
 
 #define MAX_NAME (50)
 #define MAX_CATS (1024)
-#define MAX_NAME1 "12981249281491059875210915290852109518"
-#define MAX_NAME2 "DIFFERENT 98123409125701248u01293812490815290"
-#define ILLEGAL_NAME "1209812410325671356987153987159812571285701257251"
+
+#define FORMAT_LINE_FOR_DUMP( className, member ) \
+    std::cout << std::setfill( ' ' )  /* Space pad    */  \
+              << std::left            /* Left justify */  \
+              << std::boolalpha  /* Print `true` or `false` for `bool`s */ \
+              << std::setw( 8) << (className)             \
+              << std::setw(20) << (member)                \
+              << std::setw(52)  /* (data) */
+
+#define PRINT_HEADING_FOR_DUMP \
+std::cout << std::setw(80) << std::setfill( '=' ) << "" << std::endl
+
 
 enum Gender { UNKNOWN_GENDER = 0, MALE, FEMALE };
 enum Breed { UNKNOWN_BREED , MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX };
