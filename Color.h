@@ -56,7 +56,7 @@ inline std::ostream& operator<<( std::ostream& lhs_stream, const Color& rhs_Colo
             lhs_stream << "Calico";
             break;
         default:
-            throw std::out_of_range( PROGRAM_NAME ": Color not mapped to a string" );
+            throw std::out_of_range("Color not mapped to a string");
     }
     return lhs_stream;
 }

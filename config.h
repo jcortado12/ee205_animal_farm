@@ -22,6 +22,6 @@ enum Gender { UNKNOWN_GENDER = 0, MALE, FEMALE };
 enum Breed { UNKNOWN_BREED , MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX };
 
 //typedefs
-typedef float   Weight;
-const Weight UNKNOWN_WEIGHT = (-1);
+//typedef float   Weight;
+const float UNKNOWN_WEIGHT = (-1);
 

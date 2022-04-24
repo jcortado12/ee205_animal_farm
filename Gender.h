@@ -16,7 +16,7 @@
 
 #include "config.h"
 
-enum class Gender {
+enum class Genders {
     UNKNOWN_GENDER, MALE, FEMALE
 };
 
@@ -32,7 +32,7 @@ inline std::ostream& operator<<( std::ostream& lhs_stream, const Gender& rhs_Gen
             lhs_stream << "Female";
             break;
         default:
-            throw std::out_of_range( PROGRAM_NAME ": Gender not mapped to a string" );
+            throw std::out_of_range("Gender not mapped to a string");
     }
     return lhs_stream;
 }

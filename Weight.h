@@ -16,6 +16,7 @@ using namespace std;
 
 class Weight {
 public:
+    typedef float t_weight;
     ////////////////////////Constants///////////////////////////////
     enum UnitOfWeight { POUND, KILO, SLUG };
 
@@ -71,4 +72,7 @@ private:
     ///////////////////////////Setter//////////////////////////////
     void setMaxWeight( float newMaxWeight );
 };
+
+std::ostream& operator<<( std::ostream& lhs_stream, const Weight& rhs_Weight ) ;
+std::ostream& operator<<( std::ostream& lhs_stream, Weight::UnitOfWeight rhs_UnitOfWeight );
 
