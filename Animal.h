@@ -9,13 +9,22 @@
 /// @date   23_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-#ifndef EE205_LAB_10D_ANIMAL_FARM_3_ANIMAL_H
-#define EE205_LAB_10D_ANIMAL_FARM_3_ANIMAL_H
+#pragma once
+
+#include <string>
+#include "Gender.h"
 
 
 class Animal {
 
+public:
+    static const std::string KINGDOM_NAME;
+
+private:
+    std::string species;
+    std::string classification;
+    Gender gender = Gender::UNKNOWN_GENDER;
+    //Weight weight;
+
 };
 
-
-#endif //EE205_LAB_10D_ANIMAL_FARM_3_ANIMAL_H
