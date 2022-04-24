@@ -9,16 +9,11 @@
 /// @date   31_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <stdbool.h>
-#include <string.h>
-#include <stdlib.h>
 #include <cassert>
 #include <iostream>
 
 #include "addCats.h"
 #include "catDatabase.h"
-//#include "config.h"
 
 #include "config.h"
 

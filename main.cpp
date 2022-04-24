@@ -8,11 +8,7 @@
 /// @author Jordan Cortado <jcortado@hawaii.edu>
 /// @date   31_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#include <stdio.h>
-#include <stdbool.h>
-#include <string.h>
-#include <stdlib.h>
-#include <assert.h>
+#include <cstdlib>
 #include <exception>
 #include <iostream>
 

@@ -9,10 +9,7 @@
 /// @date   31_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <stdbool.h>
 #include <string.h>
-#include <stdlib.h>
 #include <cassert>
 #include <iostream>
 

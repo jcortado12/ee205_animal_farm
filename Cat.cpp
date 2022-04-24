@@ -8,10 +8,7 @@
 /// @author Jordan Cortado <jcortado@hawaii.edu>
 /// @date   09_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-#include <stdlib.h>
-#include <stdio.h>
 #include <cstring>
-#include <stdexcept>
 #include <iostream>
 #include <iomanip>
 #include <cassert>
