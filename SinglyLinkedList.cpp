@@ -6,7 +6,7 @@
 /// @version 1.0
 ///
 /// @author Jordan Cortado <jcortado@hawaii.edu>
-/// @date   23_Apr_2022
+/// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "SinglyLinkedList.h"

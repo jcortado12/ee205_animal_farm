@@ -6,10 +6,27 @@
 /// @version 1.0
 ///
 /// @author Jordan Cortado <jcortado@hawaii.edu>
-/// @date   23_Apr_2022
+/// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
+#pragma once
 
-#ifndef EE205_LAB_10D_ANIMAL_FARM_3_SINGLYLINKEDLIST_H
-#define EE205_LAB_10D_ANIMAL_FARM_3_SINGLYLINKEDLIST_H
+#include "Node.h"
 
-#endif //EE205_LAB_10D_ANIMAL_FARM_3_SINGLYLINKEDLIST_H
+class SinglyLinkedList {
+public:
+    SinglyLinkedList();
+
+    void push_front(Node *newNode);
+
+    Node *pop_front() noexcept override;
+
+    void insert_after(Node *currentNode, Node *newNode);
+
+    void dump() const noexcept override;
+};
+
+
+
+
+};
+
