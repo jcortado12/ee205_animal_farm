@@ -12,7 +12,7 @@
 #pragma once
 
 #include <string>
-#include "Gender.h"
+//#include "Gender.h"
 
 
 class Animal {
@@ -23,7 +23,7 @@ public:
 private:
     std::string species;
     std::string classification;
-    Gender gender = Gender::UNKNOWN_GENDER;
+    //Gender gender = Gender::UNKNOWN_GENDER;
     //Weight weight;
 
 };
