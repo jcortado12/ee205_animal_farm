@@ -10,3 +10,15 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "Node.h"
+
+void Node::print() const {
+}
+
+bool Node::compareByAddress(const Node *node1, const Node *node2) {
+}
+
+bool Node::operator>(const Node &rightSide) {
+}
+
+bool Node::validate() const noexcept {
+}

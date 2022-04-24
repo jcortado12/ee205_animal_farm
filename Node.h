@@ -9,13 +9,25 @@
 /// @date   23_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-#ifndef EE205_LAB_10D_ANIMAL_FARM_3_NODE_H
-#define EE205_LAB_10D_ANIMAL_FARM_3_NODE_H
+#pragma once
 
+#include <iostream>
+#include "config.h"
 
 class Node {
 
+    friend class List;
+    friend class SinglyLinkedList;
+
+public:
+    virtual void print() const;
+
+    virtual bool validate() const noexcept;
+
+    virtual bool operator> ( const Node &rightSide );
+
+protected:
+    static bool compareByAddress ( const Node *node1, const Node *node2 );
+
+    Node* next = nullptr;
 };
-
-
-#endif //EE205_LAB_10D_ANIMAL_FARM_3_NODE_H
