@@ -10,16 +10,20 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
+#include <string>
+
 #include "config.h"
+#include "Mammal.h"
 
-class Cat {
+class Cat : public Mammal {
+public:
+    static const std::string SPECIES_NAME;
+    static const Weight::t_weight MAX_WEIGHT;
+
 protected:
-    char                name[MAX_NAME];
-    enum    Gender      gender;
-    enum    Breed       breed;
-    bool                isFixed;
-    Weight              weight;
+    std::string name;
 
+    bool isFixed;
 public:
     Cat*                next;
 
@@ -38,7 +42,7 @@ public:
     Gender getGender() const noexcept;
     Breed getBreed() const noexcept;
     bool isCatFixed() const noexcept;
-    Weight getWeight() const noexcept;
+    float getWeight() const noexcept;
     void fixCat() noexcept;
 
     /////////////Setters///////////
@@ -51,6 +55,8 @@ public:
     void setGender(Gender gender);
     void setBreed(Breed breed);
 
+public:
+    //////////////Validation//////////////////
     static bool isNameValid( const char* newName );
     static bool isWeightValid( const Weight newWeight );
     static bool isGenderValid( const Gender newGender );
@@ -58,11 +64,6 @@ public:
 
     bool print() const noexcept;
     bool validate() const noexcept;
-
-private:
-    void zeros();
-
-
 };
 
 
