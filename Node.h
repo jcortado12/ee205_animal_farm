@@ -20,11 +20,11 @@ class Node {
     friend class SinglyLinkedList;
 
 public:
-    virtual void print() const;
+    virtual void dump() const;
 
     virtual bool validate() const noexcept;
 
-    virtual bool operator> ( const Node &rightSide );
+    virtual bool operator>( const Node &rightSide );
 
 protected:
     static bool compareByAddress ( const Node *node1, const Node *node2 );
