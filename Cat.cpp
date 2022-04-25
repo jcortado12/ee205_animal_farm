@@ -50,8 +50,6 @@ bool Cat::isNameValid( const string& newName ) {
     return true;
 }
 
-
-
 /////////////////Validate////////////
 bool Cat::validate() const noexcept {
     if (isNameValid( name ) == false) {
@@ -71,5 +69,7 @@ void Cat::dump() const noexcept{
     FORMAT_LINE_FOR_DUMP( "Cat", "isFixed") << isCatFixed() << endl;
 }
 
-
+std::string Cat::speak() const noexcept {
+    return "Meow";
+}
 

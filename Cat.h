@@ -15,8 +15,6 @@
 #include "config.h"
 #include "Mammal.h"
 
-
-
 class Cat : public Mammal {
 public:
     static const std::string SPECIES_NAME;
@@ -55,31 +53,21 @@ public:
 
     ///////////Getters////////////
     std::string getName() const noexcept;
-    //Gender getGender() const noexcept;
-    //Breed getBreed() const noexcept;
     bool isCatFixed() const noexcept;
-    //float getWeight() const noexcept;
     void fixCat() noexcept;
 
     /////////////Setters///////////
     void setName( const std::string& newName);
-    //void setWeight( float weight );
 
-//protected:
-//public:
-    ///////////Setters//////////////
-    //void setGender(Gender gender);
-    //void setBreed(Breed breed);
 
 public:
     //////////////Validation//////////////////
     static bool isNameValid( const std::string& newName );
-    static bool isWeightValid( const float newWeight );
-    static bool isGenderValid( const Gender newGender );
-    static bool isBreedValid( const Breed newBreed );
 
-    void dump() const noexcept;
-    bool validate() const noexcept;
+    void dump() const noexcept override;
+    bool validate() const noexcept override;
+
+    std::string speak() const noexcept override;
 };
 
 

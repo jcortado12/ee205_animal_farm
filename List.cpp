@@ -8,6 +8,7 @@
 /// @author Jordan Cortado <jcortado@hawaii.edu>
 /// @date   23_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
+#include <cassert>
 
 #include "List.h"
 #include "config.h"
@@ -67,4 +68,14 @@ void List::deleteAllNodes() noexcept {
     }
 
     cout << "All nodes successfully deleted" << endl;
+}
+
+bool List::validate() const noexcept {
+    if (head == nullptr) {
+        assert(size() == 0);
+    } else {
+        assert(size() != 0);
+    }
+
+    return true;
 }

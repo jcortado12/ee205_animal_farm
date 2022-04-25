@@ -18,7 +18,7 @@ SinglyLinkedList::SinglyLinkedList() {}
 
 void SinglyLinkedList::push_front(Node* newNode) {
     if (newNode == nullptr) {
-        return;
+        throw invalid_argument("newNode cannot be nullptr");
     }
     if (head != nullptr) {
         newNode -> next = head;
