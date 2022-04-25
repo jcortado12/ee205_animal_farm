@@ -18,7 +18,7 @@
 #include "Node.h"
 #include "config.h"
 
-class Animal {
+class Animal : public Node {
 
 public:
     static const std::string KINGDOM_NAME;

@@ -129,12 +129,12 @@ void Animal::dump() const noexcept {
 
     Node::dump();
 
-    FORMAT_LINE_FOR_DUMP( "Animal", "this" ) << this << std::endl ;
-    FORMAT_LINE_FOR_DUMP( "Animal", "kingdom" ) << getKingdom() << std::endl ;
-    FORMAT_LINE_FOR_DUMP( "Animal", "classification" ) << getClassification() << std::endl;
-    FORMAT_LINE_FOR_DUMP( "Animal", "species" ) << getSpecies() << std::endl ;
-    FORMAT_LINE_FOR_DUMP( "Animal", "gender" ) << getGender() << std::endl ;
-    FORMAT_LINE_FOR_DUMP( "Animal", "weight" ) << getWeight() << " out of " << weight.getMaxWeight() << weight.getUnitOfWeight() << std::endl;
-    FORMAT_LINE_FOR_DUMP( "Animal", "species" ) << getSpecies() << std::endl ;
+    FORMAT_LINE_FOR_DUMP( "Animal", "this" ) << this << endl;
+    FORMAT_LINE_FOR_DUMP( "Animal", "kingdom" ) << getKingdom() << endl;
+    FORMAT_LINE_FOR_DUMP( "Animal", "classification" ) << getClassification() << endl;
+    FORMAT_LINE_FOR_DUMP( "Animal", "species" ) << getSpecies() << endl;
+    FORMAT_LINE_FOR_DUMP( "Animal", "gender" ) << getGender() << endl;
+    FORMAT_LINE_FOR_DUMP( "Animal", "weight" ) << getWeight() << endl;
+    FORMAT_LINE_FOR_DUMP( "Animal", "species" ) << getSpecies() << endl;
 
 }
