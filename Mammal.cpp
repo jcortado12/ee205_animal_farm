@@ -8,5 +8,18 @@
 /// @author Jordan Cortado <jcortado@hawaii.edu>
 /// @date   23_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
+#include <string>
 
 #include "Mammal.h"
+#include "config.h"
+
+using namespace std;
+
+const string Mammal::MAMMAL_NAME = "Mammilian";
+
+void Mammal::dump() const noexcept {
+
+    Animal::dump();
+
+    FORMAT_LINE_FOR_DUMP("Mammal", "color") << color << endl;
+}

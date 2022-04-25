@@ -8,15 +8,14 @@
 /// @author Jordan Cortado <jcortado@hawaii.edu>
 /// @date   23_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-
-#ifndef EE205_LAB_10D_ANIMAL_FARM_3_MAMMAL_H
-#define EE205_LAB_10D_ANIMAL_FARM_3_MAMMAL_H
+#pragma once
 
 #include <string>
 #include "Color.h"
-#include "Weight.h"
+//#include "Weight.h"
+#include "Animal.h"
 
-class Mammal {
+class Mammal : public Animal {
 
 public:
     static const std::string MAMMAL_NAME;
