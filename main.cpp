@@ -12,123 +12,39 @@
 #include <exception>
 #include <iostream>
 
-#include "catDatabase.h"
-#include "addCats.h"
-#include "reportCats.h"
-#include "deleteCats.h"
 #include "Cat.h"
+#include "SinglyLinkedList.h"
 
 #include "config.h"
 
-//#define DEBUG
-
 using namespace std;
 
-int main ( ) {
+int main() {
+    cout << "Starting Animal Farm 3" << endl;
 
-    cout << "Starting Animal Farm 3 " << endl;
+    SinglyLinkedList catDB ;
 
-    initializeDB();
+    catDB.push_front( new Cat( "Loki", Color::CREAM, true, Gender::MALE, 1.0 ) ) ;
+    catDB.push_front( new Cat( "Milo", Color::BLACK, true, Gender::MALE, 1.1 ) ) ;
+    catDB.push_front( new Cat( "Bella", Color::BROWN, true, Gender::FEMALE, 1.2 ) ) ;
+    catDB.push_front( new Cat( "Kali", Color::CALICO, true, Gender::FEMALE, 1.3 ) ) ;
+    catDB.push_front( new Cat( "Trin", Color::WHITE, true, Gender::FEMALE, 1.4 ) ) ;
 
-    #ifdef DEBUG
-    {
-        // Verify that a cat's default values are set
-        Cat testCat = Cat();
-        assert(testCat.getName() != nullptr );
-        assert(strcmp(testCat.getName(), "") == 0);
-        assert(testCat.getGender() == UNKNOWN_GENDER);
-        assert(testCat.getBreed() == UNKNOWN_BREED);
-        assert(testCat.isCatFixed() == false);
-        assert(testCat.getWeight() == UNKNOWN_WEIGHT);
-        assert(!testCat.isCatFixed());
-        assert(!testCat.validate());  // The default cat is invalid
+    catDB.insert_after(catDB.get_first(), new Cat( "Chili", Color::GINGER, true, Gender::MALE, 1.5 ) );
 
-        // Test for NULL name
-        try {
-            testCat.setName(nullptr);
-            assert(false); // We should never get here
-        } catch (exception const &e) {}
-
-        // Test for empty name
-        try {
-            testCat.setName("");
-            assert(false); // We should never get here
-        } catch (exception const &e) {}
-
-        // Test valid names
-        testCat.setName("A");       // A 1 character name is valid
-        testCat.setName(MAX_NAME1); // A MAX_NAME1 name is valid
-
-        // Test for name too large
-        try {
-            testCat.setName(ILLEGAL_NAME);
-            assert(false); // We should never get here
-        } catch (exception const &e) {}
-
-        testCat.setGender(FEMALE);
-
-        try {
-            testCat.setGender(MALE);
-            assert(false); // We should never get here
-        } catch (exception const &e) {}
-
-        testCat.setBreed(MAINE_COON);
-
-        try {
-            testCat.setBreed(MANX);
-            assert(false); // We should never get here
-        } catch (exception const &e) {}
-
-        testCat.fixCat();
-        assert(testCat.isCatFixed());
-
-        // Test for Weight <= 0
-        try {
-            testCat.setWeight(0);
-            assert(false); // We should never get here
-        } catch (exception const &e) {}
-
-        testCat.setWeight(1.0 / 1024);
-        assert(testCat.getWeight() == 1.0 / 1024);
-
-        assert(testCat.validate());  // The cat should now be valid
-        testCat.print() ;
-
-        assert(!isCatInDatabase(&testCat)) ;
+    for( Animal* pAnimal = (Animal*)catDB.get_first();
+         pAnimal != nullptr ;
+         pAnimal = (Animal*)List::get_next( (Node*)pAnimal ) ) {
+        cout << pAnimal->speak() << endl;
     }
-    #endif
 
-    addCat( new Cat( "Loki", MALE, PERSIAN, 1.0 )) ;
-    addCat( new Cat( "Milo", MALE, MANX , 1.1 )) ;
-    addCat( new Cat( "Bella", FEMALE, MAINE_COON, 1.2 )) ;
-    addCat( new Cat( "Kali", FEMALE, SHORTHAIR, 1.3 )) ;
-    addCat( new Cat( "Trin", FEMALE, MANX, 1.4 )) ;
-    addCat( new Cat( "Chili", MALE, SHORTHAIR, 1.5 )) ;
+    catDB.validate() ;
+    catDB.dump() ;
 
-    #ifdef DEBUG
-    {
-        // Test finding a cat...
-        Cat *bella = findCatByName("Bella");
-        assert(bella != nullptr);
-        // Test not finding a cat
-        assert(findCatByName("Bella's not here") == nullptr);
+    catDB.deleteAllNodes() ;
+    catDB.dump() ;
 
-        // Test deleting a cat...
-        assert(deleteCat(bella) == true);
-        try {
-            deleteCat(bella); // Verify that Bella's not there
-        } catch (exception const &e) {}
+    cout << "Done with Animal Farm 3" << endl;
 
-        bella = nullptr;
-    }
-    #endif
-
-    printAllCats() ;
-
-    deleteAllCats() ;
-
-    printAllCats() ;
-
-    cout << "Done with Animal Farm 2" << endl;
-    return EXIT_SUCCESS  ;
+    return( EXIT_SUCCESS ) ;
 }
