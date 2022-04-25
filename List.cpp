@@ -10,3 +10,61 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "List.h"
+#include "config.h"
+
+using namespace std;
+
+bool List::empty() const noexcept {
+    if( head == nullptr ) {
+        return true;
+    }
+    return false;
+}
+
+unsigned int List::size() const noexcept {
+    return count;
+}
+
+bool List::isIn(Node* aNode) const {
+    Node* currentNode = head;
+
+    while ( currentNode != nullptr ) {
+        if( aNode == currentNode ) {
+            return true;
+        }
+        currentNode = currentNode->next;
+    }
+
+    return false;
+}
+
+bool List::isSorted() const noexcept {
+    if( count <=  1 ) {
+        return true;
+    }
+
+    for( Node* i = head; i->next != nullptr; i = i->next ){
+        if( *i > *i->next ) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+Node* List::get_first() const noexcept {
+    return head;
+}
+
+Node* List::get_next(const Node *currentNode) {
+    return currentNode->next;
+}
+
+void List::deleteAllNodes() noexcept {
+
+    while( head != nullptr ){
+        pop_front();
+    }
+
+    cout << "All nodes successfully deleted" << endl;
+}
