@@ -11,8 +11,9 @@
 #pragma once
 
 #include "Node.h"
+#include "List.h"
 
-class SinglyLinkedList {
+class SinglyLinkedList : public List{
 public:
     SinglyLinkedList();
 
@@ -23,10 +24,7 @@ public:
     void insert_after(Node *currentNode, Node *newNode);
 
     void dump() const noexcept override;
-};
 
-
-
-
+    bool validate() const noexcept override;
 };
 
