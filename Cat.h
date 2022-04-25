@@ -15,6 +15,8 @@
 #include "config.h"
 #include "Mammal.h"
 
+
+
 class Cat : public Mammal {
 public:
     static const std::string SPECIES_NAME;
@@ -22,47 +24,61 @@ public:
 
 protected:
     std::string name;
-
     bool isFixed;
+
 public:
-    Cat*                next;
+    Cat* next;
 
-    Cat();
+public:
+    explicit Cat( const std::string& newName ) : Mammal( MAX_WEIGHT, SPECIES_NAME ) {
+        if ( !isNameValid( newName )) {
+            throw std::out_of_range( "Cats must have a name");
+        }
 
-    Cat (   const   char    *newName,
-            const   Gender  newGender,
-            const   Breed   newBreed,
-            const   Weight  newWeight
-            );
+        name = newName;
+        isFixed = false;
+    }
 
-    virtual ~Cat();
+    Cat (   const   std::string&        newName,
+            const   Color               newColor,
+            const   bool                newIsFixed,
+            const   Gender              newGender,
+            const   Weight::t_weight    newWeight
+            ) : Mammal( newColor, newGender, newWeight, MAX_WEIGHT, SPECIES_NAME )
+    {
+        if( !isNameValid( newName ) ) {
+            throw std::out_of_range( "Cats must have a name");
+        }
+        name = newName;
+        isFixed = newIsFixed;
+    }
 
     ///////////Getters////////////
-    const char *getName() const noexcept;
-    Gender getGender() const noexcept;
-    Breed getBreed() const noexcept;
+    std::string getName() const noexcept;
+    //Gender getGender() const noexcept;
+    //Breed getBreed() const noexcept;
     bool isCatFixed() const noexcept;
-    float getWeight() const noexcept;
+    //float getWeight() const noexcept;
     void fixCat() noexcept;
 
     /////////////Setters///////////
-    void setName( const char *newName);
-    void setWeight( Weight weight );
+    void setName( const std::string& newName);
+    //void setWeight( float weight );
 
-protected:
-public:
+//protected:
+//public:
     ///////////Setters//////////////
-    void setGender(Gender gender);
-    void setBreed(Breed breed);
+    //void setGender(Gender gender);
+    //void setBreed(Breed breed);
 
 public:
     //////////////Validation//////////////////
-    static bool isNameValid( const char* newName );
-    static bool isWeightValid( const Weight newWeight );
+    static bool isNameValid( const std::string& newName );
+    static bool isWeightValid( const float newWeight );
     static bool isGenderValid( const Gender newGender );
     static bool isBreedValid( const Breed newBreed );
 
-    bool print() const noexcept;
+    void dump() const noexcept;
     bool validate() const noexcept;
 };
 
