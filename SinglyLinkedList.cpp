@@ -8,13 +8,13 @@
 /// @author Jordan Cortado <jcortado@hawaii.edu>
 /// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-
 #include "SinglyLinkedList.h"
 #include "config.h"
 
 using namespace std;
 
 SinglyLinkedList::SinglyLinkedList() {}
+
 
 void SinglyLinkedList::push_front(Node* newNode) {
     if (newNode == nullptr) {
@@ -31,6 +31,7 @@ void SinglyLinkedList::push_front(Node* newNode) {
     SinglyLinkedList::validate();
 }
 
+
 Node* SinglyLinkedList::pop_front() noexcept {
     if (head == nullptr) {
         return nullptr;
@@ -44,6 +45,7 @@ Node* SinglyLinkedList::pop_front() noexcept {
 
     return temp;
 }
+
 
 bool SinglyLinkedList::validate() const noexcept {
 
@@ -61,6 +63,7 @@ bool SinglyLinkedList::validate() const noexcept {
 
     return true;
 }
+
 
 void SinglyLinkedList::insert_after(Node* currentNode, Node* newNode) {
     if(List::empty()){
@@ -92,6 +95,7 @@ void SinglyLinkedList::insert_after(Node* currentNode, Node* newNode) {
 
     SinglyLinkedList::validate();
 }
+
 
 void SinglyLinkedList::dump() const noexcept{
     Node* currentNode = head;

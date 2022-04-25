@@ -13,35 +13,31 @@
 
 #include "Cat.h"
 
-//////namespace///////
 using namespace std;
 
 const string Cat::SPECIES_NAME = "Felis Catus";
 const Weight::t_weight Cat::MAX_WEIGHT = 40;
 
 
-/////////////Getters/////////////////
-string Cat::getName() const noexcept {    ////Name
+string Cat::getName() const noexcept {
     return name;
 }
-
-bool Cat::isCatFixed() const noexcept{              ////Fixed
+bool Cat::isCatFixed() const noexcept{
     return isFixed;
 }
 
-//////////////////////////Setters///////////////////////////
+
 void Cat::setName(const string& newName) {
     if( isNameValid( newName )) {
         throw invalid_argument( "Cats should have a good name" );
     }
     name = newName;
 }
-
 void Cat::fixCat() noexcept {
     Cat::isFixed = true;
 }
 
-////////////////////Validation/////////////////////////
+
 bool Cat::isNameValid( const string& newName ) {
     if( newName.empty() ) {
         cerr << PROGRAM_NAME << ": Name must not be nothing" << endl;
@@ -49,8 +45,6 @@ bool Cat::isNameValid( const string& newName ) {
     }
     return true;
 }
-
-/////////////////Validate////////////
 bool Cat::validate() const noexcept {
     if (isNameValid( name ) == false) {
         return false;
@@ -58,16 +52,14 @@ bool Cat::validate() const noexcept {
     return true;
 }
 
-/////////////////Print/////////////////
-#define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
 
 void Cat::dump() const noexcept{
-
     Mammal::dump();
 
     FORMAT_LINE_FOR_DUMP( "Cat", "name" ) << getName() << endl;
     FORMAT_LINE_FOR_DUMP( "Cat", "isFixed") << isCatFixed() << endl;
 }
+
 
 std::string Cat::speak() const noexcept {
     return "Meow";

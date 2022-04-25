@@ -18,6 +18,7 @@ void Node::dump() const {
 
 }
 
+
 bool Node::compareByAddress(const Node *node1, const Node *node2) {
     if ( node1 > node2 ) {
         return true;
@@ -25,9 +26,11 @@ bool Node::compareByAddress(const Node *node1, const Node *node2) {
     return false;
 }
 
+
 bool Node::operator>(const Node &rightSide) {
     return Node::compareByAddress( this, &(Node&)rightSide);
 }
+
 
 bool Node::validate() const noexcept {
     if( next == nullptr ) {
@@ -37,6 +40,5 @@ bool Node::validate() const noexcept {
         std::cout << PROGRAM_NAME << "Recursion error. Next is pointing to itself. No bueno" << std::endl;
         return false;
     }
-
     return true;
 }

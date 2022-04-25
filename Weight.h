@@ -8,7 +8,6 @@
 /// @author Jordan Cortado <jcortado@hawaii.edu>
 /// @date   23_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-
 #include <iostream>
 #include <string>
 
@@ -17,7 +16,7 @@ using namespace std;
 class Weight {
 public:
     typedef float t_weight;
-    ////////////////////////Constants///////////////////////////////
+
     enum UnitOfWeight { POUND, KILO, SLUG };
 
     static const float    UNKNOWN_WEIGHT;
@@ -28,7 +27,6 @@ public:
     static const string KILO_LABEL;
     static const string SLUG_LABEL;
 
-    ////////////////////////Constructors//////////////////////////////
     Weight() noexcept;
     Weight(float newWeight);
     Weight(UnitOfWeight newUnitOfWeight) noexcept;
@@ -37,7 +35,6 @@ public:
     Weight(UnitOfWeight newUnitOfWeight, float newMaxWeight);
     Weight(float newWeight, UnitOfWeight newUnitOfWeight, float newMaxWeight);
 
-    /////////////////////////////Getters//////////////////////////////
     bool  isWeightKnown() const noexcept;
     bool  hasMaxWeight() const noexcept;
     float getWeight() const noexcept;
@@ -45,31 +42,26 @@ public:
     float getMaxWeight() const noexcept;
     UnitOfWeight getWeightUnit() const noexcept;
 
-    //////////////////////////Setters////////////////////////////////
     void setWeight( float newWeight );
     void setWeight( float newWeight, UnitOfWeight weightUnits );
 
-    ///////////////////////Conversion Methods///////////////////////
     static float fromKilogramToPound( float kilogram ) noexcept;
     static float fromPoundToKilogram( float pound ) noexcept;
     static float fromSlugToPound( float slug ) noexcept;
     static float fromPoundToSlug( float pound ) noexcept;
     static float convertWeight( float fromWeight, UnitOfWeight fromUnit, UnitOfWeight toUnit ) noexcept;
 
-    /////////////////////////Validation//////////////////////////////
     bool isWeightValid( float checkWeight ) const noexcept;
     bool validate() const noexcept;
     void print() const noexcept;
 
 private:
-    ////////////////////Member Variables////////////////////////////
     bool bIsKnown;
     bool bHasMax;
     enum UnitOfWeight unitOfWeight;
     float weight{};
     float maxWeight{};
 
-    ///////////////////////////Setter//////////////////////////////
     void setMaxWeight( float newMaxWeight );
 };
 

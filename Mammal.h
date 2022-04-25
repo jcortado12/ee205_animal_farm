@@ -11,9 +11,10 @@
 #pragma once
 
 #include <string>
+
 #include "Color.h"
-//#include "Weight.h"
 #include "Animal.h"
+#include "config.h"
 
 class Mammal : public Animal {
 

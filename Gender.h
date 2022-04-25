@@ -8,7 +8,6 @@
 /// @author Jordan Cortado <jcortado@hawaii.edu>
 /// @date   23_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-
 #pragma once
 
 #include <iostream>

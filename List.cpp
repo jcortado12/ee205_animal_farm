@@ -22,9 +22,11 @@ bool List::empty() const noexcept {
     return false;
 }
 
+
 unsigned int List::size() const noexcept {
     return count;
 }
+
 
 bool List::isIn(Node* aNode) const {
     Node* currentNode = head;
@@ -38,6 +40,7 @@ bool List::isIn(Node* aNode) const {
 
     return false;
 }
+
 
 bool List::isSorted() const noexcept {
     if( count <=  1 ) {
@@ -53,13 +56,16 @@ bool List::isSorted() const noexcept {
     return true;
 }
 
+
 Node* List::get_first() const noexcept {
     return head;
 }
 
+
 Node* List::get_next(const Node *currentNode) {
     return currentNode->next;
 }
+
 
 void List::deleteAllNodes() noexcept {
 
@@ -69,6 +75,7 @@ void List::deleteAllNodes() noexcept {
 
     cout << "All nodes successfully deleted" << endl;
 }
+
 
 bool List::validate() const noexcept {
     if (head == nullptr) {

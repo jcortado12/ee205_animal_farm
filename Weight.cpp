@@ -29,7 +29,7 @@ const string Weight::POUND_LABEL = "lb";
 const string Weight::KILO_LABEL = "kg";
 const string Weight::SLUG_LABEL = "slug";
 
-//////////////////////////Validation//////////////////////////////
+
 bool Weight::isWeightKnown() const noexcept {
     if( weight == UNKNOWN_WEIGHT) {
         cout << "Weight must be known" << endl;
@@ -68,7 +68,7 @@ bool Weight::validate() const noexcept {
     return true;
 }
 
-/////////////////////////////Constructors///////////////////////////////
+
 Weight::Weight() noexcept {
 }
 Weight::Weight(float newWeight) {
@@ -93,7 +93,7 @@ Weight::Weight(float newWeight, UnitOfWeight newUnitOfWeight, float newMaxWeight
     setWeight( newWeight, newUnitOfWeight );
 }
 
-////////////////////////////////Getters///////////////////////////////
+
 float Weight::getWeight() const noexcept {
     if( bIsKnown ) {
         return weight;
@@ -111,7 +111,7 @@ float Weight::getMaxWeight() const noexcept {
     }
 }
 
-//////////////////////////////Setters////////////////////////////////////
+
 void Weight::setWeight( const float newWeight ) {
     if( isWeightValid( newWeight ) == true) {
         bIsKnown = true;
@@ -128,7 +128,8 @@ void Weight::setMaxWeight(float newMaxWeight) {
     maxWeight = newMaxWeight;
     bHasMax = true;
 }
-//////////////////////////////Conversion///////////////////////////////
+
+
 float Weight::fromPoundToKilogram(float pound) noexcept {
     return (pound * KILOS_IN_A_POUND);
 }
@@ -141,6 +142,7 @@ float Weight::fromPoundToSlug(float pound) noexcept {
 float Weight::fromSlugToPound(float slug) noexcept {
     return (slug / SLUGS_IN_A_POUND);
 }
+
 
 float Weight::convertWeight(float fromWeight,
                             UnitOfWeight fromUnit,
@@ -173,7 +175,7 @@ float Weight::convertWeight(float fromWeight,
     return toWeight;
 }
 
-////////////////////////////////////dump/////////////////////////////////////
+
 void Weight::print()	const noexcept{
     std::cout << std::setw(80) << std::setfill( '=' ) << "" << std::endl ;
     std::cout << std::setfill( ' ' ) ;
@@ -186,7 +188,7 @@ void Weight::print()	const noexcept{
     FORMAT_LINE( "Weight", "maxWeight" )       << getMaxWeight() << std::endl ;
 }
 
-///////////////////////////////
+
 std::ostream &operator<<(std::ostream &os, const Weight::UnitOfWeight originalStream) {
     switch( originalStream ) {
         case Weight::POUND: return os << "Pound" ;

@@ -20,39 +20,34 @@ using namespace std;
 
 const string Animal::KINGDOM_NAME = "Animalia";
 
-//////////Getters//////////////
+
 string Animal::getKingdom() const noexcept {
     return KINGDOM_NAME;
 }
-
 string Animal::getClassification() const noexcept {
     return classification;
 }
-
 string Animal::getSpecies() const noexcept {
     return species;
 }
-
 Gender Animal::getGender() const noexcept {
     return gender;
 }
-
 Weight::t_weight  Animal::getWeight() const noexcept {
     return weight.getWeight();
 }
 
-//////////setters/////////////
+
 void Animal::setWeight( const Weight::t_weight newWeight ) {
     weight.setWeight( newWeight );
 }
-
 void Animal::setGender( const Gender newGender ) {
     if( gender != Gender::UNKNOWN_GENDER ) {
         throw logic_error( "Gender is set already" );
     }
 }
 
-/////Constructors//////////
+
 Animal::Animal (const Weight::t_weight newMaxWeight,
                 const std::string &newClassification,
                 const std::string &newSpecies) : Node(), weight( Weight::POUND, newMaxWeight ) {
@@ -60,7 +55,6 @@ Animal::Animal (const Weight::t_weight newMaxWeight,
     classification = newClassification;
     species = newSpecies;
 }
-
 Animal::Animal (const Gender newGender,
                 const Weight::t_weight newWeight,
                 const Weight::t_weight newMaxWeight,
@@ -71,7 +65,8 @@ Animal::Animal (const Gender newGender,
     classification = newClassification;
     species = newSpecies;
 }
-//////////Validation//////////////
+
+
 bool Animal::validateClassification( const std::string &checkClassification ) noexcept {
     if( checkClassification.compare("Mammalia") ){
         return true;
@@ -98,7 +93,6 @@ bool Animal::validateClassification( const std::string &checkClassification ) no
     cout << checkClassification << ". Not a valid Animal Class" << endl;
     return false;
 }
-
 bool Animal::validateSpecies(const std::string &checkSpecies) noexcept {
     if( checkSpecies.compare("Cat") ) {
         return true;
@@ -110,7 +104,6 @@ bool Animal::validateSpecies(const std::string &checkSpecies) noexcept {
     cout << checkSpecies << ". Not a valid species." << endl;
     return false;
 }
-
 bool Animal::validate() const noexcept {
     if( !validateClassification(getClassification()) ) {
         return false;
@@ -124,6 +117,7 @@ bool Animal::validate() const noexcept {
     }
 }
 
+
 void Animal::dump() const noexcept {
     PRINT_HEADING_FOR_DUMP;
 
@@ -136,5 +130,4 @@ void Animal::dump() const noexcept {
     FORMAT_LINE_FOR_DUMP( "Animal", "gender" ) << getGender() << endl;
     FORMAT_LINE_FOR_DUMP( "Animal", "weight" ) << getWeight() << endl;
     FORMAT_LINE_FOR_DUMP( "Animal", "species" ) << getSpecies() << endl;
-
 }

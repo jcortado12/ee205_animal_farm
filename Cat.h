@@ -51,17 +51,13 @@ public:
         isFixed = newIsFixed;
     }
 
-    ///////////Getters////////////
     std::string getName() const noexcept;
     bool isCatFixed() const noexcept;
     void fixCat() noexcept;
 
-    /////////////Setters///////////
     void setName( const std::string& newName);
 
-
 public:
-    //////////////Validation//////////////////
     static bool isNameValid( const std::string& newName );
 
     void dump() const noexcept override;
